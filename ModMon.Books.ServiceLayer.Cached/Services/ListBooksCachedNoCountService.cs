@@ -2,6 +2,10 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using ModMon.Books.Persistence;
+using ModMon.Books.Persistence.QueryObjects;
+using ModMon.Books.ServiceLayer.Cached.QueryObjects;
 using ModMon.Books.ServiceLayer.Common;
 using ModMon.Books.ServiceLayer.Common.Dtos;
 

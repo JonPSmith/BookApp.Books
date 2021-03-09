@@ -2,6 +2,7 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
+using ModMon.Books.Domain;
 
 namespace ModMon.Books.Infrastructure.CachedValues.CheckFixCode
 {

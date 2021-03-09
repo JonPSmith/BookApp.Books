@@ -3,6 +3,10 @@
 
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ModMon.Books.Persistence;
+using ModMon.Books.Persistence.QueryObjects;
+using ModMon.Books.ServiceLayer.Cached.QueryObjects;
 using ModMon.Books.ServiceLayer.Common;
 using ModMon.Books.ServiceLayer.Common.Dtos;
 

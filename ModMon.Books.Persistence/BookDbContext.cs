@@ -32,7 +32,7 @@ namespace ModMon.Books.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.AutoConfigureTypes();
-            modelBuilder.AutoConfigureQueryFilters<BookDbContext>(this);
+            modelBuilder.AutoConfigureQueryFilters<BookDbContext>();
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 

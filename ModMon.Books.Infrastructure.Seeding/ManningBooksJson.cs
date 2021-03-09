@@ -2,6 +2,7 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
+using System.Linq;
 
 namespace ModMon.Books.Infrastructure.Seeding
 {
@@ -26,10 +27,11 @@ namespace ModMon.Books.Infrastructure.Seeding
         public DateTime? publishedDate { get; set; }
         public string slug { get; set; }
 
-        public ModMon.Books.Domain.Book MapToBook()
+        public Book MapToBook()
         {
-            var url = "https://images.manning.com/360/480/resize/" + imageUrl;
-            var status = ModMon.Books.Domain.Book.CreateBook( )
+            var fullImageUrl = "https://images.manning.com/360/480/resize/" + imageUrl;
+            var publishedOn = publishedDate ?? expectedPublishDate;
+            var price = productOfferings.Select(x => x.price).Max();
 
 
             throw new NotImplementedException();

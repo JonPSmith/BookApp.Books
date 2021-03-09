@@ -3,6 +3,8 @@
 
 using System;
 using GenericEventRunner.ForHandlers;
+using ModMon.Books.Domain;
+using ModMon.Books.Domain.DomainEvents;
 using StatusGeneric;
 
 namespace ModMon.Books.Infrastructure.CachedValues.EventHandlers
@@ -13,7 +15,7 @@ namespace ModMon.Books.Infrastructure.CachedValues.EventHandlers
         public IStatusGeneric Handle(object callingEntity,//#B 
             BookReviewAddedEvent domainEvent)             //#B
         {
-            var book = (Domain.Books.Book) callingEntity; //#C
+            var book = (Book) callingEntity; //#C
 
             var totalStars = Math.Round(   //#D
                 book.ReviewsAverageVotes   //#D
