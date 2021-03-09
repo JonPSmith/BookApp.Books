@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Reflection;
@@ -11,7 +11,6 @@ namespace ModMon.Books.Persistence
     public class BookDbContext                  //#A
         : DbContextWithEvents<BookDbContext>    //#B
     {
-
         public BookDbContext(
             DbContextOptions<BookDbContext> options, 
             IEventsRunner eventRunner = null) //#C
@@ -25,7 +24,7 @@ namespace ModMon.Books.Persistence
         #D The constructor of the DbContextWithEvents class needs the EventRunner
          ***********************************************************/
 
-        public DbSet<Book> Books { get; set; }                        
+        public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Tag> Tags { get; set; }
 

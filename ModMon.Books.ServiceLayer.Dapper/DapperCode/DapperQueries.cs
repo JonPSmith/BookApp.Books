@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -17,26 +17,8 @@ namespace ModMon.Books.ServiceLayer.Dapper.DapperCode
 {
     public static class DapperQueries
     {
-        private class LogDapperCommand : IDisposable
-        {
-            private readonly string _command;
-            private readonly ILogger _myLogger;
-            private readonly Stopwatch stopwatch = new Stopwatch();
-
-            public LogDapperCommand(string command, BookDbContext context)
-            {
-                _command = command;
-                _myLogger = context.GetService<ILoggerFactory>().CreateLogger(nameof(DapperQueries));
-                stopwatch.Start();
-            }
-
-            public void Dispose()
-            {
-                stopwatch.Stop();
-                _myLogger.LogInformation(new EventId(1, LogParts.DapperEventName), 
-                    $"Dapper Query. Execute time = {stopwatch.ElapsedMilliseconds} ms.\n"+ _command);
-            }
-        }
+        //NOTE: This must match the name in the Logger part
+        public const string DapperEventName = "EfCoreInAction.Dapper";
 
         public static async Task<IEnumerable<BookListDto>> //#A
             DapperBookListQueryAsync(this BookDbContext context, //#B
@@ -172,6 +154,28 @@ AND ([b].[PublishedOn] <= GETUTCDATE()) ";
 ( SELECT AVG(CAST([y].[NumStars] AS float)) FROM [Review] AS [y] WHERE [b].[BookId] = [y].[BookId] ) AS [ReviewsAverageVotes] 
 FROM [Books] AS [b]
 ";
+        }
+
+
+        private class LogDapperCommand : IDisposable
+        {
+            private readonly string _command;
+            private readonly ILogger _myLogger;
+            private readonly Stopwatch stopwatch = new Stopwatch();
+
+            public LogDapperCommand(string command, BookDbContext context)
+            {
+                _command = command;
+                _myLogger = context.GetService<ILoggerFactory>().CreateLogger(nameof(DapperQueries));
+                stopwatch.Start();
+            }
+
+            public void Dispose()
+            {
+                stopwatch.Stop();
+                _myLogger.LogInformation(new EventId(1, DapperEventName), 
+                    $"Dapper Query. Execute time = {stopwatch.ElapsedMilliseconds} ms.\n"+ _command);
+            }
         }
     }
 }

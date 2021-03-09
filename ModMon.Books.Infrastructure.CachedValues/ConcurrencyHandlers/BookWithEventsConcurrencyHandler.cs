@@ -1,8 +1,10 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
-// Licensed under MIT license. See License file in the project root for license information.
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+// Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using ModMon.Books.Domain;
 using StatusGeneric;
 
 namespace ModMon.Books.Infrastructure.CachedValues.ConcurrencyHandlers
@@ -47,6 +49,7 @@ namespace ModMon.Books.Infrastructure.CachedValues.ConcurrencyHandlers
 
             return new StatusGenericHandler(); //#K
         }
+
         /******************************************************************
         #A This extension method handles the Reviews and Author cached values concurrency issues
         #B We cast the exception to a DbUpdateConcurrencyException

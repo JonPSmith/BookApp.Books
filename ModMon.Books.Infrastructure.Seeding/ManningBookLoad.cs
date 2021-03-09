@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
+using ModMon.Books.Domain;
 using Newtonsoft.Json;
 
 [assembly: InternalsVisibleTo("Test")]
@@ -20,10 +21,10 @@ namespace ModMon.Books.Infrastructure.Seeding
 
         public const string PublisherString = "Manning publications";
         const string OriginalBooksTag = "Manning books";
+        private readonly string _detailSearchString;
 
         private readonly string _fileDir;
         private readonly string _summarySearchString;
-        private readonly string _detailSearchString;
 
         public ManningBookLoad(string fileDir, string summarySearchString, string detailSearchString)
         {

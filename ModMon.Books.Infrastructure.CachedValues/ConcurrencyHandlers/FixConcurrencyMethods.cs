@@ -1,5 +1,5 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
-// Licensed under MIT license. See License file in the project root for license information.
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+// Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
 using System.Linq;
@@ -11,8 +11,8 @@ namespace ModMon.Books.Infrastructure.CachedValues.ConcurrencyHandlers
 {
     public class FixConcurrencyMethods
     {
-        private readonly EntityEntry _entry;
         private readonly DbContext _context;
+        private readonly EntityEntry _entry;
 
         public FixConcurrencyMethods(EntityEntry entry, DbContext context)
         {
@@ -149,6 +149,7 @@ namespace ModMon.Books.Infrastructure.CachedValues.ConcurrencyHandlers
                 .OriginalValue =                           //#J
                 bookThatCausedConcurrency.AuthorsOrdered;  //#J
         }
+
         /**********************************************************************
         #A This method handles concurrency errors in the AuthorsOrdered cached value
         #B This parameter is the Book from the database that caused the concurrency issue

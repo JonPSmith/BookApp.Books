@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
+﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
@@ -9,28 +9,25 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using ModMon.Books.Domain;
+using ModMon.Books.Persistence;
 
 namespace ModMon.Books.Infrastructure.Seeding
 {
     public class BookGenerator : IBookGenerator
     {
-        private readonly DbContextOptions<BookDbContext> _sqlOptions;
-        private readonly DbContextOptions<CosmosDbContext> _cosmosOptions;
-        private List<Book> _loadedBooks;
-
         private const int AddPromotionEvery = 7;
         private const int MaxReviewsPerBook = 12;
         private readonly Random _random = new Random(1); //Used to create random review star ratings. Seeded for same sequence
+        private readonly DbContextOptions<BookDbContext> _sqlOptions;
+        private List<Book> _loadedBooks;
 
         public BookGenerator(IServiceProvider provider)
         {
             _sqlOptions = provider.GetRequiredService<DbContextOptions<BookDbContext>>();
-            //If cosmos not turned on then this will be null
-            _cosmosOptions = provider.GetService<DbContextOptions<CosmosDbContext>>();
         }
 
         private int NumBooksInSet => _loadedBooks.Count;
-        private bool IncludeCosmosDb => _cosmosOptions != null;
 
         public async Task<TimeSpan> WriteBooksAsync(string wwwRootDir, bool wipeDatabase, int totalBooksNeeded, 
             bool makeBookTitlesDistinct, CancellationToken cancellationToken)
@@ -57,7 +54,6 @@ namespace ModMon.Books.Infrastructure.Seeding
                     //Assumes no reviews
                     context.AddRange(books);
                     await context.SaveChangesAsync();
-                    await OptionalCosmosWriteAsync(books, true);
 
                     numBooksInDb = await context.Books.IgnoreQueryFilters().CountAsync();
                 }
@@ -80,45 +76,6 @@ namespace ModMon.Books.Infrastructure.Seeding
             return stopWatch.Elapsed;
         }
 
-        private async ValueTask OptionalCosmosWriteAsync(List<Book> books, bool wipeDatabase = false)
-        {
-            if (!IncludeCosmosDb)
-                return;
-
-            using var cosmosContext = new CosmosDbContext(_cosmosOptions);
-            if (wipeDatabase)
-            {
-                await cosmosContext.Database.EnsureDeletedAsync();
-                await cosmosContext.Database.EnsureCreatedAsync();
-            }
-
-            var cosmosBooks = books.Select(b => new CosmosBook
-            {
-                BookId = b.BookId,
-                Title = b.Title,
-                PublishedOn = b.PublishedOn,
-                EstimatedDate = b.EstimatedDate,
-                YearPublished = b.PublishedOn.Year,
-                OrgPrice = b.OrgPrice,
-                ActualPrice = b.ActualPrice,
-                PromotionalText = b.PromotionalText,
-                ManningBookUrl = b.ManningBookUrl,
-                AuthorsOrdered = string.Join(", ",
-                    b.AuthorsLink
-                        .OrderBy(q => q.Order)
-                        .Select(q => q.Author.Name)),
-                ReviewsCount = b.Reviews?.Count ?? 0,
-                ReviewsAverageVotes = b.Reviews != null && b.Reviews.Any()
-                    ? b.Reviews.Average(y => y.NumStars)
-                    : 0.0,
-                Tags = b.Tags
-                    .Select(x => new CosmosTag(x.TagId)).ToList(),
-                TagsString = $"| {string.Join(" | ", b.Tags.Select(x => x.TagId))} |"
-            });
-            cosmosContext.AddRange(cosmosBooks);
-            await cosmosContext.SaveChangesAsync();
-        }
-
         private async Task<int> GenerateBatchAndWrite(bool makeBookTitlesDistinct, int numToWrite,
             int numWritten, int numBooksInDb)
         {
@@ -131,7 +88,6 @@ namespace ModMon.Books.Infrastructure.Seeding
                 .ToList();
             context.AddRange(batch);
             await context.SaveChangesAsync();
-            await OptionalCosmosWriteAsync(batch);
             return batch.Count;
         }
 
