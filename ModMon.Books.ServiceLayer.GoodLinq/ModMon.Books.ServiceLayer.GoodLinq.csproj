@@ -3,5 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
+  
+      <ItemGroup>
+    <PackageReference Include="EfCore.GenericServices" Version="5.0.0" />
+    <PackageReference Include="GenericServices.StatusGeneric" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
+  </ItemGroup>  
+
+  <ItemGroup>
+    <ProjectReference Include="..\ModMon.Books.Domain\ModMon.Books.Domain.csproj" />
+    <ProjectReference Include="..\ModMon.Books.Persistence\ModMon.Books.Persistence.csproj" />
+    <ProjectReference Include="..\ModMon.Books.ServiceLayer.Common\ModMon.Books.ServiceLayer.Common.csproj" />
+  </ItemGroup>
 
 </Project>

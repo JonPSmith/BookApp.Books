@@ -4,4 +4,10 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ModMon.Books.Domain\ModMon.Books.Domain.csproj" />
+    <ProjectReference Include="..\ModMon.Books.Persistence\ModMon.Books.Persistence.csproj" />
+    <ProjectReference Include="..\ModMon.Books.ServiceLayer.Common\ModMon.Books.ServiceLayer.Common.csproj" />
+  </ItemGroup>
+
 </Project>
