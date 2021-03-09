@@ -1,11 +1,11 @@
 ﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using BookApp.Domain.Books;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ModMon.Books.Domain;
 
-namespace BookApp.Persistence.EfCoreSql.Books.Configurations
+namespace ModMon.Books.Persistence.Configurations
 {
     internal class BookConfig : IEntityTypeConfiguration<Book>
     {

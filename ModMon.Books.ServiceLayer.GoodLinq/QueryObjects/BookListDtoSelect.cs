@@ -2,10 +2,10 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
-using BookApp.Domain.Books;
-using BookApp.ServiceLayer.DisplayCommon.Books.Dtos;
+using ModMon.Books.Domain;
+using ModMon.Books.ServiceLayer.Common.Dtos;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books.QueryObjects
+namespace ModMon.Books.ServiceLayer.GoodLinq.QueryObjects
 {
     public static class BookListDtoSelect
     {

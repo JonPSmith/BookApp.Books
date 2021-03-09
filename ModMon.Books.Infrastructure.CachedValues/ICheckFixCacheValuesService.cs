@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BookApp.Infrastructure.Books.CachedValues
+namespace ModMon.Books.Infrastructure.CachedValues
 {
     public interface ICheckFixCacheValuesService
     {

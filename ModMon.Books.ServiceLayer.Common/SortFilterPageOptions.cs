@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookApp.ServiceLayer.DisplayCommon.Books
+namespace ModMon.Books.ServiceLayer.Common
 {
     public class SortFilterPageOptions : ISortFilterPage
     {

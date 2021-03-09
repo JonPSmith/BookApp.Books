@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.ServiceLayer.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.AppSetup", "ModMon.Books.AppSetup\ModMon.Books.AppSetup.csproj", "{6FD820A5-F4F5-4D14-8CEF-46ACA0CE0F70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.Infrastructure.CachedValues", "ModMon.Books.Infrastructure.CachedValues\ModMon.Books.Infrastructure.CachedValues.csproj", "{234CA322-FB96-43B6-94C5-20B38AF66EE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{6FD820A5-F4F5-4D14-8CEF-46ACA0CE0F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FD820A5-F4F5-4D14-8CEF-46ACA0CE0F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FD820A5-F4F5-4D14-8CEF-46ACA0CE0F70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{234CA322-FB96-43B6-94C5-20B38AF66EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{234CA322-FB96-43B6-94C5-20B38AF66EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{234CA322-FB96-43B6-94C5-20B38AF66EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{234CA322-FB96-43B6-94C5-20B38AF66EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

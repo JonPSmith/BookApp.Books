@@ -3,7 +3,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace BookApp.Persistence.EfCoreSql.Books
+namespace ModMon.Books.Persistence
 {
     public static class UdfDefinitions
     {

@@ -2,11 +2,11 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.ComponentModel.DataAnnotations;
-using BookApp.Domain.Books;
 using GenericServices;
 using Microsoft.AspNetCore.Mvc;
+using ModMon.Books.Domain;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books.Dtos
+namespace ModMon.Books.ServiceLayer.GoodLinq.Dtos
 {
     public class AddPromotionDto : ILinkToEntity<Book>
     {

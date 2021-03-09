@@ -4,11 +4,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using BookApp.Domain.Books.DomainEvents;
-using BookApp.Domain.Books.SupportTypes;
 using GenericEventRunner.DomainParts;
+using ModMon.Books.Domain.DomainEvents;
+using ModMon.Books.Domain.SupportTypes;
 
-namespace BookApp.Domain.Books
+namespace ModMon.Books.Domain
 {
     public class Author : EventsAndCreatedUpdated  //#A
     {

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EfCore.GenericEventRunner" Version="2.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ModMon.Books.Domain\ModMon.Books.Domain.csproj" />
+    <ProjectReference Include="..\ModMon.Books.Persistence\ModMon.Books.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -3,7 +3,7 @@
 
 using GenericEventRunner.DomainParts;
 
-namespace BookApp.Domain.Books.DomainEvents
+namespace ModMon.Books.Domain.DomainEvents
 {
     public enum BookChangeTypes { Added, Updated, Deleted } //#A
 

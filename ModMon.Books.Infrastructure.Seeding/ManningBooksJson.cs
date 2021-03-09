@@ -2,9 +2,8 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
-using BookApp.Domain.Books;
 
-namespace BookApp.Infrastructure.Book.Seeding
+namespace ModMon.Books.Infrastructure.Seeding
 {
     public class ManningBooksJson
     {
@@ -27,10 +26,10 @@ namespace BookApp.Infrastructure.Book.Seeding
         public DateTime? publishedDate { get; set; }
         public string slug { get; set; }
 
-        public Domain.Books.Book MapToBook()
+        public ModMon.Books.Domain.Book MapToBook()
         {
             var url = "https://images.manning.com/360/480/resize/" + imageUrl;
-            var status = Domain.Books.Book.CreateBook( )
+            var status = ModMon.Books.Domain.Book.CreateBook( )
 
 
             throw new NotImplementedException();

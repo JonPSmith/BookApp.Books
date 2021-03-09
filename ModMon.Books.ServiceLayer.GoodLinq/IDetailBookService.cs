@@ -2,9 +2,9 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Threading.Tasks;
-using BookApp.ServiceLayer.DefaultSql.Books.Dtos;
+using ModMon.Books.ServiceLayer.GoodLinq.Dtos;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books
+namespace ModMon.Books.ServiceLayer.GoodLinq
 {
     public interface IDetailBookService
     {

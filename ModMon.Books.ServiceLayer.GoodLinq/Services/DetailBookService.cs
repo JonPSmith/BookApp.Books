@@ -1,14 +1,13 @@
 ﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using System.Linq;
 using System.Threading.Tasks;
-using BookApp.Persistence.EfCoreSql.Books;
-using BookApp.ServiceLayer.DefaultSql.Books.Dtos;
 using Microsoft.AspNetCore.Html;
 using Microsoft.EntityFrameworkCore;
+using ModMon.Books.Persistence;
+using ModMon.Books.ServiceLayer.GoodLinq.Dtos;
 
-namespace BookApp.ServiceLayer.DefaultSql.Books.Services
+namespace ModMon.Books.ServiceLayer.GoodLinq.Services
 {
     public class DetailBookService : IDetailBookService
     {
