@@ -4,4 +4,16 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ModMon.Books.Domain\ModMon.Books.Domain.csproj" />
+    <ProjectReference Include="..\ModMon.Books.Infrastructure.CachedValues\ModMon.Books.Infrastructure.CachedValues.csproj" />
+    <ProjectReference Include="..\ModMon.Books.Infrastructure.Seeding\ModMon.Books.Infrastructure.Seeding.csproj" />
+    <ProjectReference Include="..\ModMon.Books.Persistence\ModMon.Books.Persistence.csproj" />
+    <ProjectReference Include="..\ModMon.Books.ServiceLayer.Cached\ModMon.Books.ServiceLayer.Cached.csproj" />
+    <ProjectReference Include="..\ModMon.Books.ServiceLayer.Common\ModMon.Books.ServiceLayer.Common.csproj" />
+    <ProjectReference Include="..\ModMon.Books.ServiceLayer.Dapper\ModMon.Books.ServiceLayer.Dapper.csproj" />
+    <ProjectReference Include="..\ModMon.Books.ServiceLayer.GoodLinq\ModMon.Books.ServiceLayer.GoodLinq.csproj" />
+    <ProjectReference Include="..\ModMon.Books.ServiceLayer.Udfs\ModMon.Books.ServiceLayer.Udfs.csproj" />
+  </ItemGroup>
+
 </Project>

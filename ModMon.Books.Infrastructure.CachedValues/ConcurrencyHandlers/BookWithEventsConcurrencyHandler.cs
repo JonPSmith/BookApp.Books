@@ -11,43 +11,42 @@ namespace ModMon.Books.Infrastructure.CachedValues.ConcurrencyHandlers
 {
     public static class BookWithEventsConcurrencyHandler
     {
-        public static IStatusGeneric HandleCacheValuesConcurrency //#A
+        public static IStatusGeneric HandleCacheValuesConcurrency 
             (this Exception ex, DbContext context)
         {
-            var dbUpdateEx = ex as DbUpdateConcurrencyException; //#B
-            if (dbUpdateEx == null) //#C
-                return null; //#C
-            
+            if (!(ex is DbUpdateConcurrencyException dbUpdateEx)) 
+                return null; 
+
             //There could be multiple books if there was a bulk upload. Unusual, but best to handle it.
-            foreach (var entry in dbUpdateEx.Entries) //#D
+            foreach (var entry in dbUpdateEx.Entries) 
             {
-                if (!(entry.Entity is Book bookBeingWrittenOut)) //#E
-                    return null; //#E
+                if (!(entry.Entity is Book bookBeingWrittenOut)) 
+                    return null; 
 
                 //we read in the book that caused the concurrency issue
                 //This MUST be read as NoTracking otherwise it will interfere with the same entity we are trying to write
-                var bookThatCausedConcurrency = context.Set<Book>() //#F
-                    .IgnoreQueryFilters()                           //#F
-                    .AsNoTracking()                                 //#F
-                    .SingleOrDefault(p => p.BookId                  //#F
-                        == bookBeingWrittenOut.BookId);             //#F
+                var bookThatCausedConcurrency = context.Set<Book>() 
+                    .IgnoreQueryFilters()                           
+                    .AsNoTracking()                                 
+                    .SingleOrDefault(p => p.BookId                  
+                        == bookBeingWrittenOut.BookId);             
 
-                if (bookThatCausedConcurrency == null)    //#G
-                {                                         //#G
-                    entry.State = EntityState.Detached;   //#G
-                    continue;                             //#G
-                }                                         //#G
+                if (bookThatCausedConcurrency == null)    
+                {                                         
+                    entry.State = EntityState.Detached;   
+                    continue;                             
+                }                                         
 
-                var handler = new FixConcurrencyMethods(entry, context); //#H
+                var handler = new FixConcurrencyMethods(entry, context); 
 
-                handler.CheckFixReviewCacheValues(                  //#I
-                    bookThatCausedConcurrency, bookBeingWrittenOut);//#I
+                handler.CheckFixReviewCacheValues(                  
+                    bookThatCausedConcurrency, bookBeingWrittenOut);
 
-                handler.CheckFixAuthorsOrdered(                      //#J
-                    bookThatCausedConcurrency, bookBeingWrittenOut);//#J
+                handler.CheckFixAuthorsOrdered(                      
+                    bookThatCausedConcurrency, bookBeingWrittenOut);
             }
 
-            return new StatusGenericHandler(); //#K
+            return new StatusGenericHandler(); 
         }
 
         /******************************************************************
