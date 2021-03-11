@@ -1,0 +1,12 @@
+﻿{
+  //NOTE: you MUST set the "Copy to Output Directory" property to "Copy if newer"
+
+  "RootName": null, //If null then uses solution name. If not null defined the RootName
+  "MainProject": null, //If null it uses "{RootName}.AppStart", otherwise provide the ".<rest of project name>"  
+  "NuGetId": null, //if null then uses RootName, If not null defines the NuGet ID
+  "Version": "1.0.0-preview001",
+  "Owners":  "Selective Analytics", 
+  "Authors": "Jon P Smith",
+  "Description": "Books bounded context in the example evolving Modular Monolith series",
+  "ProjectUrl": "https://github.com/JonPSmith/ModMon.Books"
+}
