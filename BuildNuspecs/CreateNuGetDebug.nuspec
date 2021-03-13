@@ -2,7 +2,8 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>ModMon.Books</id>
-    <version>1.0.0-preview001</version>
+    <version>1.0.0-preview008</version>
+    <releaseNotes>fixed ModMon.Books.ServiceLayer.Udfs namespace wrong</releaseNotes>
     <authors>Jon P Smith</authors>
     <owners>Selective Analytics</owners>
     <description>Books bounded context in the example evolving Modular Monolith series</description>
@@ -24,11 +25,14 @@
   </metadata>
   <files>
     <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.AppSetup\bin\Debug\netstandard2.1\ModMon.Books.AppSetup.dll" target="lib\netstandard2.1" />
-    <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.ServiceLayer.Udfs\bin\Debug\netstandard2.1\ModMon.Books.ServiceLayer.Udfs.dll" target="lib\netstandard2.1" />
+    <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.Domain\bin\Debug\netstandard2.1\ModMon.Books.Domain.dll" target="lib\netstandard2.1" />
+    <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.Infrastructure.CachedValues\bin\Debug\netstandard2.1\ModMon.Books.Infrastructure.CachedValues.dll" target="lib\netstandard2.1" />
+    <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.Infrastructure.Seeding\bin\Debug\netstandard2.1\ModMon.Books.Infrastructure.Seeding.dll" target="lib\netstandard2.1" />
+    <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.Persistence\bin\Debug\netstandard2.1\ModMon.Books.Persistence.dll" target="lib\netstandard2.1" />
     <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.ServiceLayer.Cached\bin\Debug\netstandard2.1\ModMon.Books.ServiceLayer.Cached.dll" target="lib\netstandard2.1" />
+    <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.ServiceLayer.Common\bin\Debug\netstandard2.1\ModMon.Books.ServiceLayer.Common.dll" target="lib\netstandard2.1" />
     <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.ServiceLayer.Dapper\bin\Debug\netstandard2.1\ModMon.Books.ServiceLayer.Dapper.dll" target="lib\netstandard2.1" />
     <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.ServiceLayer.GoodLinq\bin\Debug\netstandard2.1\ModMon.Books.ServiceLayer.GoodLinq.dll" target="lib\netstandard2.1" />
-    <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.Infrastructure.Seeding\bin\Debug\netstandard2.1\ModMon.Books.Infrastructure.Seeding.dll" target="lib\netstandard2.1" />
-    <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.Infrastructure.CachedValues\bin\Debug\netstandard2.1\ModMon.Books.Infrastructure.CachedValues.dll" target="lib\netstandard2.1" />
+    <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.ServiceLayer.Udfs\bin\Debug\netstandard2.1\ModMon.Books.ServiceLayer.Udfs.dll" target="lib\netstandard2.1" />
   </files>
 </package>

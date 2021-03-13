@@ -1,7 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
-using System.Reflection;
 using BuildNuspecs.Helpers;
 using BuildNuspecs.NuspecBuilder;
 using BuildNuspecs.ParseProjects;

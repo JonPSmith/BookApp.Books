@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModMon.Books.AppSetup\ModMon.Books.AppSetup.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="hostsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

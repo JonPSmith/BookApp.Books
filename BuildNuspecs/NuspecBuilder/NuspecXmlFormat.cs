@@ -57,6 +57,8 @@ namespace BuildNuspecs.NuspecBuilder
 
         private string versionField;
 
+        private string releaseNotesField;
+
         private string authorsField;
 
         private string ownersField;
@@ -93,6 +95,18 @@ namespace BuildNuspecs.NuspecBuilder
             }
         }
 
+        /// <remarks/>
+        public string releaseNotes
+        {
+            get
+            {
+                return this.releaseNotesField;
+            }
+            set
+            {
+                this.releaseNotesField = value;
+            }
+        }
         /// <remarks/>
         public string authors
         {

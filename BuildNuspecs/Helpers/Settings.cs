@@ -12,6 +12,7 @@ namespace BuildNuspecs.Helpers
         public string MainProject { get; }
         public string NuGetId { get; }
         public string Version { get; }
+        public string ReleaseNotes { get; }
         public string Owners { get; }
         public string Authors { get; }
         public string Description { get; }
@@ -26,6 +27,7 @@ namespace BuildNuspecs.Helpers
             MainProject = configuration[nameof(MainProject)];
             NuGetId = configuration[nameof(NuGetId)];
             Version = configuration[nameof(Version)];
+            ReleaseNotes = configuration[nameof(ReleaseNotes)];
             Owners = configuration[nameof(Owners)];
             Authors = configuration[nameof(Authors)];
             Description = configuration[nameof(Description)];

@@ -19,6 +19,7 @@ namespace BuildNuspecs.NuspecBuilder
                 {
                     id = settings.RootName,
                     version = settings.Version,
+                    releaseNotes = settings.ReleaseNotes,
                     owners = settings.Owners,
                     authors = settings.Authors,
                     description = settings.Description,
@@ -40,7 +41,7 @@ namespace BuildNuspecs.NuspecBuilder
                 }
             };
 
-            package.files = appInfo.RootProjects.Select(x =>
+            package.files = appInfo.AllProjects.Select(x =>
             {
                 var pathToDll =
                     $"{Path.GetDirectoryName(x.ProjectPath)}\\bin\\{settings.DebugOrRelease}\\{x.TargetFramework}\\{x.ProjectName}.dll";
