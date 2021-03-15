@@ -2,8 +2,8 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>ModMon.Books</id>
-    <version>1.0.0-preview008</version>
-    <releaseNotes>fixed ModMon.Books.ServiceLayer.Udfs namespace wrong</releaseNotes>
+    <version>1.0.0-preview009</version>
+    <releaseNotes>with symbols</releaseNotes>
     <authors>Jon P Smith</authors>
     <owners>Selective Analytics</owners>
     <description>Books bounded context in the example evolving Modular Monolith series</description>

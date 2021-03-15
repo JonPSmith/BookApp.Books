@@ -3,29 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{A5DB95BD-A426-42CE-8CDF-FBC96975FDCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{A5DB95BD-A426-42CE-8CDF-FBC96975FDCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.Domain", "ModMon.Books.Domain\ModMon.Books.Domain.csproj", "{A3D52583-02A9-4954-9E10-B8F505B2F8A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Domain", "ModMon.Books.Domain\ModMon.Books.Domain.csproj", "{A3D52583-02A9-4954-9E10-B8F505B2F8A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.Persistence", "ModMon.Books.Persistence\ModMon.Books.Persistence.csproj", "{E47CD4F3-36A7-405D-B11A-372967F481AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Persistence", "ModMon.Books.Persistence\ModMon.Books.Persistence.csproj", "{E47CD4F3-36A7-405D-B11A-372967F481AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.Infrastructure.Seeding", "ModMon.Books.Infrastructure.Seeding\ModMon.Books.Infrastructure.Seeding.csproj", "{59936BD5-C2CD-4D79-8CBE-677E6DA5E146}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Infrastructure.Seeding", "ModMon.Books.Infrastructure.Seeding\ModMon.Books.Infrastructure.Seeding.csproj", "{59936BD5-C2CD-4D79-8CBE-677E6DA5E146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.ServiceLayer.Cached", "ModMon.Books.ServiceLayer.Cached\ModMon.Books.ServiceLayer.Cached.csproj", "{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.Cached", "ModMon.Books.ServiceLayer.Cached\ModMon.Books.ServiceLayer.Cached.csproj", "{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.ServiceLayer.Dapper", "ModMon.Books.ServiceLayer.Dapper\ModMon.Books.ServiceLayer.Dapper.csproj", "{951015CD-8699-40B7-A605-94AF8F78A825}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.Dapper", "ModMon.Books.ServiceLayer.Dapper\ModMon.Books.ServiceLayer.Dapper.csproj", "{951015CD-8699-40B7-A605-94AF8F78A825}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.ServiceLayer.GoodLinq", "ModMon.Books.ServiceLayer.GoodLinq\ModMon.Books.ServiceLayer.GoodLinq.csproj", "{D6C26516-31E5-42EA-941C-AF2C5EDD7057}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.GoodLinq", "ModMon.Books.ServiceLayer.GoodLinq\ModMon.Books.ServiceLayer.GoodLinq.csproj", "{D6C26516-31E5-42EA-941C-AF2C5EDD7057}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.ServiceLayer.Common", "ModMon.Books.ServiceLayer.Common\ModMon.Books.ServiceLayer.Common.csproj", "{03C4BF3A-11E3-4C09-B004-A0559D7091BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.Common", "ModMon.Books.ServiceLayer.Common\ModMon.Books.ServiceLayer.Common.csproj", "{03C4BF3A-11E3-4C09-B004-A0559D7091BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.ServiceLayer.Udfs", "ModMon.Books.ServiceLayer.Udfs\ModMon.Books.ServiceLayer.Udfs.csproj", "{CE0DCA21-8012-4FCD-A31B-87D94C6925E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.Udfs", "ModMon.Books.ServiceLayer.Udfs\ModMon.Books.ServiceLayer.Udfs.csproj", "{CE0DCA21-8012-4FCD-A31B-87D94C6925E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.AppSetup", "ModMon.Books.AppSetup\ModMon.Books.AppSetup.csproj", "{6FD820A5-F4F5-4D14-8CEF-46ACA0CE0F70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.AppSetup", "ModMon.Books.AppSetup\ModMon.Books.AppSetup.csproj", "{6FD820A5-F4F5-4D14-8CEF-46ACA0CE0F70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModMon.Books.Infrastructure.CachedValues", "ModMon.Books.Infrastructure.CachedValues\ModMon.Books.Infrastructure.CachedValues.csproj", "{234CA322-FB96-43B6-94C5-20B38AF66EE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Infrastructure.CachedValues", "ModMon.Books.Infrastructure.CachedValues\ModMon.Books.Infrastructure.CachedValues.csproj", "{234CA322-FB96-43B6-94C5-20B38AF66EE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildNuspecs", "BuildNuspecs\BuildNuspecs.csproj", "{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildNuspecs", "BuildNuspecs\BuildNuspecs.csproj", "{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AA18F01E-C7C1-494D-8DAB-3954E09CB0DA}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		ReleaseNotes.md = ReleaseNotes.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

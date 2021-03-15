@@ -4,8 +4,8 @@
   "RootName": null, //If null then uses solution name. If not null defined the RootName
   "MainProject": null, //If null it uses "{RootName}.AppStart", otherwise provide the ".<rest of project name>"  
   "NuGetId": null, //if null then uses RootName, If not null defines the NuGet ID
-  "Version": "1.0.0-preview008",
-  "ReleaseNotes": "fixed ModMon.Books.ServiceLayer.Udfs namespace wrong",
+  "Version": "1.0.0-preview010",
+  "ReleaseNotes": "without symbols",
   "Owners":  "Selective Analytics", 
   "Authors": "Jon P Smith",
   "Description": "Books bounded context in the example evolving Modular Monolith series",
