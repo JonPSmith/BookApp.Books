@@ -28,4 +28,3 @@
    - Register services
    - Setup database on start
    - Provide assemblies for GenericServices
-- Add DesignTimeContext + Migrate db
