@@ -9,7 +9,7 @@ namespace ModMon.Books.Persistence
     public class DesignTimeContextFactory : IDesignTimeDbContextFactory<BookDbContext>          
     {
         private const string connectionString =               
-            "Server=(localdb)\\mssqllocaldb;Database=EfCoreInActionDb2-Part3;Trusted_Connection=True;MultipleActiveResultSets=true";
+            "Server=(localdb)\\mssqllocaldb;Database=ModMon.BooksDb;Trusted_Connection=True;MultipleActiveResultSets=true";
 
         public BookDbContext CreateDbContext(string[] args)   
         {

@@ -56,12 +56,14 @@ namespace ModMon.Books.Persistence
 * see https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/migrations?tabs=visual-studio
 * 
 * The following NuGet libraries must be loaded
-* 1. Add to BookApp: "Microsoft.EntityFrameworkCore.Tools"
-* 2. Add to DataLayer: "Microsoft.EntityFrameworkCore.SqlServer" (or another database provider)
+* 1. Add to startup project (BuildNuspecs): "Microsoft.EntityFrameworkCore.Design"
+* 2. Startup project (BuildNuspecs) must reference ModMon.Books.Persistence project
+* 3. Add to ModMon.Books.Persistence: "Microsoft.EntityFrameworkCore.Tools"
+* 4. Add to ModMon.Books.Persistence: "Microsoft.EntityFrameworkCore.SqlServer" (or another database provider)
 * 
 * 2. Using Package Manager Console commands
 * The steps are:
-* a) Make sure the default project is BookApp.Persistence.EfCoreSql.Books
+* a) Make sure the default project is ModMon.Books.Persistence
 * b) Use the PMC command
 *    Add-Migration NameForMigration -Context BookDbContext
 * c) Use PMC command
