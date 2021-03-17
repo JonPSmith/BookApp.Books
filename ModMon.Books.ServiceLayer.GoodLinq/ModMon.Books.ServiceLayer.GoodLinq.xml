@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ModMon.Books.ServiceLayer.GoodLinq</name>
+    </assembly>
+    <members>
+        <member name="M:ModMon.Books.ServiceLayer.GoodLinq.IBookFilterDropdownService.GetFilterDropDownValues(ModMon.Books.ServiceLayer.Common.BooksFilterBy)">
+            <summary>
+                This makes the various Value + text to go in the dropdown based on the FilterBy option
+            </summary>
+            <param name="filterBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ModMon.Books.ServiceLayer.GoodLinq.Services.BookFilterDropdownService.GetFilterDropDownValues(ModMon.Books.ServiceLayer.Common.BooksFilterBy)">
+            <summary>
+                This makes the various Value + text to go in the dropdown based on the FilterBy option
+            </summary>
+            <param name="filterBy"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

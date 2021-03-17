@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
+using System;
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,8 @@ namespace ModMon.Books.AppSetup
                     Assembly.GetAssembly(typeof(IListBooksService)),
                     Assembly.GetAssembly(typeof(IListUdfsBooksService)))
                 .AsPublicImplementedInterfaces();
+
+            var x = DateTime.Now;
 
             //put any non-standard DI registration, e.g. generic types, here
         }

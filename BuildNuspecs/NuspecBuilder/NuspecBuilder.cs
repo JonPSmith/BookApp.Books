@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
@@ -41,15 +42,28 @@ namespace BuildNuspecs.NuspecBuilder
                 }
             };
 
-            package.files = appInfo.AllProjects.Select(x =>
+            package.files = appInfo.AllProjects.SelectMany(x =>
             {
-                var pathToDll =
-                    $"{Path.GetDirectoryName(x.ProjectPath)}\\bin\\{settings.DebugOrRelease}\\{x.TargetFramework}\\{x.ProjectName}.dll";
-                return new packageFile
+                var pathToDir =
+                    $"{Path.GetDirectoryName(x.ProjectPath)}\\bin\\{settings.DebugOrRelease}\\{x.TargetFramework}\\";
+                var result = new List<packageFile>
                 {
-                    src = pathToDll,
-                    target = $"lib\\{x.TargetFramework}"
+                    new packageFile
+                    {
+                        src = pathToDir + $"{x.ProjectName}.dll",
+                        target = $"lib\\{x.TargetFramework}"
+                    }
                 };
+                if (settings.IncludeSymbols)
+                {
+                    result.Add(new packageFile
+                    {
+                        src = pathToDir + $"{x.ProjectName}.pdb",
+                        target = $"lib\\{x.TargetFramework}"
+                    });
+                }
+                return result;
+
             }).ToArray();
 
 

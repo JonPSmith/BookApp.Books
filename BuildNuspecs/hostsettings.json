@@ -4,9 +4,10 @@
   "RootName": null, //If null then uses solution name. If not null defined the RootName
   "MainProject": null, //If null it uses "{RootName}.AppStart", otherwise provide the ".<rest of project name>"  
   "NuGetId": null, //if null then uses RootName, If not null defines the NuGet ID
-  "Version": "1.0.0-preview012",
-  "ReleaseNotes": "AppSetup now contains needed types",
-  "Owners":  "Selective Analytics", 
+  "IncludeSymbols": null, // Can be "None", "Debug", "Release" or "Both", if null then is "None"
+  "Version": "1.0.0-preview016",
+  "ReleaseNotes": "With embedded in NuGet package",
+  "Owners": "Selective Analytics",
   "Authors": "Jon P Smith",
   "Description": "Books bounded context in the example evolving Modular Monolith series",
   "ProjectUrl": "https://github.com/JonPSmith/ModMon.Books"

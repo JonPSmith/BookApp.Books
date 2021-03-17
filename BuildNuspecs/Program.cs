@@ -10,6 +10,8 @@ namespace BuildNuspecs
     //Once you have build the NuSpecs you run then with the following commands 
     // DEBUG:   dotnet pack -p:NuspecFile=CreateNuGetDebug.nuspec
     // RELEASE: dotnet pack -c Release -p:NuspecFile=CreateNuGetRelease.nuspec
+    //
+    // With new symbols: dotnet pack -p:NuspecFile=CreateNuGetDebug.nuspec --include-symbols -p:SymbolPackageFormat=snupkg
 
     class Program
     {
@@ -38,7 +40,7 @@ namespace BuildNuspecs
                 .ConfigureHostConfiguration(configuration =>
                 {
                     configuration
-                        .AddJsonFile("hostsettings.json", optional: true);
+                        .AddJsonFile("hostsettings.json", optional: true, reloadOnChange: true);
 
                     _configurationRoot = configuration.Build();
                 });
