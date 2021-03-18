@@ -2,6 +2,7 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -34,6 +35,15 @@ namespace BuildNuspecs.Helpers
             if (files.Length != 1)
                 throw new Exception($"Found {files.Length} solution files. I can't handle that!");
             return Path.GetFileNameWithoutExtension(files.Single());
+        }
+
+        public static string GetCorrectAssemblyPath(this string projectPath, string debugOrRelease, string targetFramework)
+        {
+            var result = $"{projectPath}\\bin\\{debugOrRelease}\\";
+            if (targetFramework != null)
+                result += $"{targetFramework}\\";
+
+            return result;
         }
     }
 }

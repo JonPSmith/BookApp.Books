@@ -5,12 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using BuildNuspecs.Helpers;
 
 namespace BuildNuspecs.ParseProjects
 {
     public static class ProjectsParser
     {
-        public static AppStructureInfo ParseModularMonolithApp(this string solutionDir, string rootName)
+        public static AppStructureInfo ParseModularMonolithApp(this string solutionDir, string rootName, ConsoleOutput consoleOut)
         {
             var projFilePaths = Directory.GetDirectories(solutionDir)
                     .Where(dir => Path.GetFileNameWithoutExtension(dir).Contains($"{rootName}"))
@@ -49,7 +50,7 @@ namespace BuildNuspecs.ParseProjects
                     .ToList() ?? new List<ProjectInfo>();
             }
 
-            return new AppStructureInfo(rootName, pInfo);
+            return new AppStructureInfo(rootName, pInfo, consoleOut);
         }
 
         private static T DeserializeToObject<T>(this string filepath) where T : class

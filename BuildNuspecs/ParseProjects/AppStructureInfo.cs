@@ -4,16 +4,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BuildNuspecs.Helpers;
+using Microsoft.Extensions.Logging;
 
 namespace BuildNuspecs.ParseProjects
 {
     public class AppStructureInfo
     {
-        public AppStructureInfo(string rootName, Dictionary<string, ProjectInfo> allProjects)
+        public AppStructureInfo(string rootName, Dictionary<string, ProjectInfo> allProjects, ConsoleOutput consoleOut)
         {
             RootName = rootName;
             AllProjects = allProjects.Values.ToList();
-            SetupAllNuGetInfosDistinctWithChecks();
+            SetupAllNuGetInfosDistinctWithChecks(consoleOut);
 
             foreach (var project in allProjects.Values)
             {
@@ -36,7 +38,7 @@ namespace BuildNuspecs.ParseProjects
 
         public List<NuGetInfo> AllNuGetInfosDistinct { get; private set; }
 
-        private void SetupAllNuGetInfosDistinctWithChecks()
+        private void SetupAllNuGetInfosDistinctWithChecks(ConsoleOutput consoleOut)
         {
             var groupedNuGets = AllProjects.SelectMany(x => x.NuGetPackages)
                 .GroupBy(x => x.NuGetId);
@@ -47,11 +49,17 @@ namespace BuildNuspecs.ParseProjects
             {
                 var versionDistinct = groupedNuGet.Key.Distinct().ToList();
                 if (versionDistinct.Count > 1)
-                    throw new Exception($"{groupedNuGet.Key} NuGet has multiple versions: \n {string.Join("\n", versionDistinct)}");
+                    consoleOut.LogMessage($"{groupedNuGet.Key} NuGet has multiple versions: \n {string.Join("\n", versionDistinct)}", LogLevel.Error);
                 allNuGets.Add(groupedNuGet.Single().First());
             }
 
             AllNuGetInfosDistinct = allNuGets;
+        }
+
+        public override string ToString()
+        {
+            return
+                $"Found {AllProjects.Count} projects starting with {RootName}, with {AllNuGetInfosDistinct.Count} NuGet packages.";
         }
     }
 }
