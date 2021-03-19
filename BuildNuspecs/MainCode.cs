@@ -30,7 +30,7 @@ namespace BuildNuspecs
 
         public void BuildNuGet(string[] args)
         {
-            args = new[] {"U"}; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //args = new[] {"U"}; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
             var thisProjPath = ProjectHelpers.GetExecutingAssemblyPath();
             var solutionDir = thisProjPath.GetSolutionPathFromProjectPath();
@@ -102,12 +102,20 @@ namespace BuildNuspecs
                     foreach (var projectInfo in _appInfo.AllProjects)
                     {
                         var dllFilename = projectInfo.ProjectName + ".dll";
-                        var dllFromPath = Path.Combine(Path.GetDirectoryName(projectInfo.ProjectPath)
-                            .GetCorrectAssemblyPath(_settings.DebugOrRelease, projectInfo.TargetFramework), dllFilename);
-                        var dllToPath = Path.Combine("\\", pathToNuGetFolderInCache, "lib", projectInfo.TargetFramework,
-                            dllFilename);
-                        File.Copy(dllFromPath, dllToPath, true);
+                        var pathFromDir = Path.GetDirectoryName(projectInfo.ProjectPath)
+                            .GetCorrectAssemblyPath(_settings.DebugOrRelease, projectInfo.TargetFramework);
+                        var pathToDir = Path.Combine(pathToNuGetFolderInCache, "lib", projectInfo.TargetFramework);
+                        File.Copy(Path.Combine(pathFromDir, dllFilename), 
+                            Path.Combine(pathToDir, dllFilename), true);
                         _consoleOut.LogMessage($"Updated {dllFilename} in nuget cache.", LogLevel.Debug);
+
+                        var xmlFilename = projectInfo.ProjectName + ".xml";
+                        if (File.Exists(Path.Combine(pathFromDir, xmlFilename)))
+                        {
+                            File.Copy(Path.Combine(pathFromDir, xmlFilename),
+                                Path.Combine(pathToDir, xmlFilename), true);
+                            _consoleOut.LogMessage($"Updated {xmlFilename} in nuget cache.", LogLevel.Debug);
+                        }
                     }
                     _consoleOut.LogMessage("Have updated .dll files in NugGet cache. Use Rebuild Solution to update.", LogLevel.Information);
                 }

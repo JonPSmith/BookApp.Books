@@ -17,7 +17,7 @@ namespace ModMon.Books.AppSetup
 {
     public static class BooksStartup
     {
-        public static void RegisterBooksServices(this IServiceCollection services, IConfiguration configuration )
+        public static void RegisterBooksServices(this IServiceCollection services, IConfiguration configuration)
         {
             var diLogs = services.RegisterAssemblyPublicNonGenericClasses(
                     Assembly.GetAssembly(typeof(ICheckFixCacheValuesService)),
@@ -28,7 +28,7 @@ namespace ModMon.Books.AppSetup
                     Assembly.GetAssembly(typeof(IListUdfsBooksService)))
                 .AsPublicImplementedInterfaces();
 
-            var x = DateTime.Now;
+            var x = "First String";
 
             //put any non-standard DI registration, e.g. generic types, here
         }

@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>ModMon.Books</id>
-    <version>1.0.0-preview016</version>
+    <version>1.0.0-preview020</version>
     <releaseNotes>With lots of extra features</releaseNotes>
     <authors>Jon P Smith</authors>
     <owners>Selective Analytics</owners>
@@ -29,6 +29,7 @@
   </metadata>
   <files>
     <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.AppSetup\bin\Debug\netstandard2.1\ModMon.Books.AppSetup.dll" target="lib\netstandard2.1" />
+    <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.AppSetup\bin\Debug\netstandard2.1\ModMon.Books.AppSetup.xml" target="lib\netstandard2.1" />
     <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.Domain\bin\Debug\netstandard2.1\ModMon.Books.Domain.dll" target="lib\netstandard2.1" />
     <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.Infrastructure.CachedValues\bin\Debug\netstandard2.1\ModMon.Books.Infrastructure.CachedValues.dll" target="lib\netstandard2.1" />
     <file src="C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.Infrastructure.Seeding\bin\Debug\netstandard2.1\ModMon.Books.Infrastructure.Seeding.dll" target="lib\netstandard2.1" />

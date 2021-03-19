@@ -11,7 +11,7 @@
 
   //NuGet information
   "NuGetId": null, //if null then uses RootName, If not null defines the NuGet ID
-  "Version": "1.0.0-preview016",
+  "Version": "1.0.0-preview020",
   "ReleaseNotes": "With lots of extra features",
   "Owners": "Selective Analytics",
   "Authors": "Jon P Smith",

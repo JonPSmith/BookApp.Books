@@ -24,7 +24,7 @@ namespace BuildNuspecs.Helpers
             }
 
             if (level >= LogLevel.Error)
-                throw new Exception($"application stopped because of {level}");
+                Environment.Exit(1);
         }
 
         private ConsoleColor GetColorForLevel(LogLevel level)
