@@ -4,9 +4,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Versioning;
 using BuildNuspecs.Helpers;
 using BuildNuspecs.NuspecBuilder;
 using BuildNuspecs.ParseProjects;
@@ -18,31 +15,36 @@ namespace BuildNuspecs
     public class MainCode
     {
         private readonly IConfiguration _configuration;
-        private readonly ConsoleOutput consoleOut;
-        private Settings settings;
+        private readonly ConsoleOutput _consoleOut;
+
+        //fields filled in by BuildNuGet method
+        private Settings _settings;
+        private AppStructureInfo _appInfo;
 
         public MainCode(IConfiguration configuration)
         {
             _configuration = configuration;
-            consoleOut = new ConsoleOutput();
+            _consoleOut = new ConsoleOutput();
         }
 
 
         public void BuildNuGet(string[] args)
         {
+            args = new[] {"U"}; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
             var thisProjPath = ProjectHelpers.GetExecutingAssemblyPath();
             var solutionDir = thisProjPath.GetSolutionPathFromProjectPath();
 
-            var debugMode = CalcDebugMode(consoleOut, args);
-            settings = new Settings(_configuration, debugMode, solutionDir);
-            consoleOut.DefaultLogLevel = settings.LogLevel;
+            _settings = new Settings(_configuration, solutionDir);
+            args.DecodeArgsAndUpdateSettings(_consoleOut, _settings);
+            _consoleOut.DefaultLogLevel = _settings.LogLevel;
 
             var rootName = solutionDir.GetSolutionFilename();
-            var appStructure = solutionDir.ParseModularMonolithApp(rootName, consoleOut);
-            consoleOut.LogMessage(appStructure.ToString(), LogLevel.Information);
-            settings.BuildNuspecFile(appStructure, consoleOut);
+            _appInfo = solutionDir.ParseModularMonolithApp(rootName, _consoleOut);
+            _consoleOut.LogMessage(_appInfo.ToString(), LogLevel.Information);
+            _settings.BuildNuspecFile(_appInfo, _consoleOut);
 
-            if (settings.AutoPack)
+            if (_settings.AutoPack)
             {
                 RunPackEct(thisProjPath);
             }
@@ -66,33 +68,60 @@ namespace BuildNuspecs
                 WorkingDirectory = thisProjPath
             };
             process.StartInfo = startInfo;
-            consoleOut.LogMessage($"Running \"dotnet {startInfo.Arguments}", LogLevel.Information);
+            _consoleOut.LogMessage($"Running \"dotnet {startInfo.Arguments}\"", LogLevel.Information);
             process.Start();
             process.WaitForExit();
             if (process.ExitCode != 0)
             {
-                consoleOut.LogMessage("dotnet pack failed", LogLevel.Error);
+                _consoleOut.LogMessage("dotnet pack failed", LogLevel.Error);
             }
-            consoleOut.LogMessage("Finished dotnet pack...", LogLevel.Information);
-            if (!string.IsNullOrEmpty(settings.CopyNuGetTo))
+            _consoleOut.LogMessage("Finished dotnet pack...", LogLevel.Information);
+            if (!string.IsNullOrEmpty(_settings.CopyNuGetTo))
             {
-                var nuGetFromPath = thisProjPath.GetCorrectAssemblyPath(settings.DebugOrRelease, null) +
-                                    settings.NuGetFileName() + ".nupkg";
-                var nuGetToPath = settings.CopyNuGetTo + "\\" + settings.NuGetFileName() + ".nupkg";
-                File.Copy(nuGetFromPath, nuGetToPath, true);
+                var nuGetFromPath = thisProjPath.GetCorrectAssemblyPath(_settings.DebugOrRelease, null) +
+                                    _settings.NuGetFileName() + ".nupkg";
+                var nuGetToPath = Path.Combine( _settings.CopyNuGetTo , _settings.NuGetFileName() + ".nupkg");
+                var fileIsOverwritten = File.Exists(nuGetToPath);
 
-                consoleOut.LogMessage($"Copied created NuGet package to {settings.CopyNuGetTo}", LogLevel.Information);
+                File.Copy(nuGetFromPath, nuGetToPath, true);
+                _consoleOut.LogMessage($"Copied created NuGet package to {_settings.CopyNuGetTo}", LogLevel.Information);
+                if (fileIsOverwritten && !_settings.OverwriteCachedVersion)
+                    _consoleOut.LogMessage("Copy overwrites existing NuGet package. If package is already installed you can't update it.", LogLevel.Warning);
+            }
+
+            if (_settings.OverwriteCachedVersion)
+            {
+                //Replace the over all the dlls to the 
+
+                var pathToNuGetFolderInCache = Path.Combine(_settings.NuGetCachePath, _settings.NuGetId.ToLower(), _settings.Version);
+                //Check that the NuGet is there 
+                if (!Directory.Exists(pathToNuGetFolderInCache))
+                    _consoleOut.LogMessage("Could not update NuGet as not in the cache. Have you added it yet?.", LogLevel.Warning);
+                else
+                {
+                    foreach (var projectInfo in _appInfo.AllProjects)
+                    {
+                        var dllFilename = projectInfo.ProjectName + ".dll";
+                        var dllFromPath = Path.Combine(Path.GetDirectoryName(projectInfo.ProjectPath)
+                            .GetCorrectAssemblyPath(_settings.DebugOrRelease, projectInfo.TargetFramework), dllFilename);
+                        var dllToPath = Path.Combine("\\", pathToNuGetFolderInCache, "lib", projectInfo.TargetFramework,
+                            dllFilename);
+                        File.Copy(dllFromPath, dllToPath, true);
+                        _consoleOut.LogMessage($"Updated {dllFilename} in nuget cache.", LogLevel.Debug);
+                    }
+                    _consoleOut.LogMessage("Have updated .dll files in NugGet cache. Use Rebuild Solution to update.", LogLevel.Information);
+                }
             }
         }
 
         private string FormPackCommand(string thisProjPath)
         {
-            var command = settings.DebugMode
+            var command = _settings.DebugMode
                 ? $"pack -p:NuspecFile=CreateNuGetDebug.nuspec"
                 : $"pack -c Release -p:NuspecFile=CreateNuGetRelease.nuspec";
 
             command += " --no-build";
-            if (settings.IncludeSymbols)
+            if (_settings.IncludeSymbols)
                 command += " --include-symbols";
 
             return command;
@@ -111,6 +140,12 @@ namespace BuildNuspecs
                     consoleOut.LogMessage("If you provide an argument it must be R (for Release) or D (for Debug)", LogLevel.Error);
                 debugMode = args[0] == "D";
             }
+
+            var message = debugMode
+                ? "Building a NuGet package using Debug code"
+                : "Building a NuGet package using Release code";
+
+            consoleOut.LogMessage(message, LogLevel.Information);
             return debugMode;
         }
     }

@@ -1,16 +1,17 @@
 ﻿{
   //NOTE: you MUST set the "Copy to Output Directory" property to "Copy if newer"
 
+  //Information for the running of this 
   "RootName": null, //If null then uses solution name. If not null defined the RootName
-  "MainProject": null, //If null it uses "{RootName}.AppStart", otherwise provide the ".<rest of project name>"  
-  "NuGetId": null, //if null then uses RootName, If not null defines the NuGet ID
+  "LogLevel": null, //defines what is written to the Console (uses LogLevel names), if null the is set to Information
   "AddSymbols": null, // Can be "None", "Debug", "Release" or "Both", if null then is "None"
+  "NuGetCachePath":  null, //if null then set to default for type of dev computer. If your path is different then set this 
   "AutoPack": true, //If true the console app calls the "dotnet pack" command 
   "CopyNuGetTo": "C:\\Users\\JonPSmith\\LocalNuGet", //if AutoPack == true && not empty, then copies NuGet to this dir
-  "LogLevel":  "Information", //defines what is written to the Console (uses LogLevel names)
 
   //NuGet information
-  "Version": "1.0.0-preview020",
+  "NuGetId": null, //if null then uses RootName, If not null defines the NuGet ID
+  "Version": "1.0.0-preview016",
   "ReleaseNotes": "With lots of extra features",
   "Owners": "Selective Analytics",
   "Authors": "Jon P Smith",

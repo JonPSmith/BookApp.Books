@@ -4,7 +4,6 @@ using Microsoft.Extensions.Hosting;
 namespace BuildNuspecs
 {
 
-
     class Program
     {
         private static IConfigurationRoot _configurationRoot;
@@ -25,7 +24,8 @@ namespace BuildNuspecs
                 .ConfigureHostConfiguration(configuration =>
                 {
                     configuration
-                        .AddJsonFile("hostsettings.json", optional: true, reloadOnChange: true);
+                        .AddJsonFile("hostsettings.json", optional: false, reloadOnChange: true)
+                        .AddEnvironmentVariables();
 
                     _configurationRoot = configuration.Build();
                 });

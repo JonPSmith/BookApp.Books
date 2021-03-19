@@ -5,14 +5,12 @@
 ### BuildNuspecs
 
 - Add features
-  - Call `dotnet pack` from app - see [link](https://stackoverflow.com/a/63341926/1434764) 
-  - Copy NuGet package (and symbols) to given dir
-  - Z mode - replaces the DLLs in the given named NuGet cache
-  - second param for notes
-
+  - Better args used: e.g. -v:1.0.0-preview001
 - Safety checks
   - Check Debug/Release are up to date (against other?)
-  - Check project for embedded which matches IncludeSymbols setting
+  - Check project for embedded which matches IncludeSymbols setting??
+
+- Turn into a NuGet package (watch out for GetExecutingAssembly!)
 
 ### Best way to provide debug information 
 

@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>ModMon.Books</id>
-    <version>1.0.0-preview020</version>
+    <version>1.0.0-preview016</version>
     <releaseNotes>With lots of extra features</releaseNotes>
     <authors>Jon P Smith</authors>
     <owners>Selective Analytics</owners>

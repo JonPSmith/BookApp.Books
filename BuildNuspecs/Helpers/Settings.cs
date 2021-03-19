@@ -13,35 +13,40 @@ namespace BuildNuspecs.Helpers
     {
         public enum AddSymbolsOptions { None, Debug, Release, Both}
 
-        public string RootName { get; private set; }
-        public string MainProject { get; private set; }
-        public AddSymbolsOptions AddSymbols { get; private set; }
-        public bool AutoPack { get; private set; }
-        public string CopyNuGetTo { get; private set; }
-        public LogLevel LogLevel { get; private set; }
+        public string RootName { get; set; }
+        public AddSymbolsOptions AddSymbols { get; set; }
+        public bool AutoPack { get; set; }
+        public string CopyNuGetTo { get; set; }
+        public LogLevel LogLevel { get; set; }
+        public string NuGetCachePath { get; set; }
 
         //Information needed by NuGet package
-        public string NuGetId { get; private set; }
-        public string Version { get; private set; }
-        public string ReleaseNotes { get; private set; }
-        public string Owners { get; private set; }
-        public string Authors { get; private set; }
-        public string Description { get; private set; }
-        public string ProjectUrl { get; private set; }
+        public string NuGetId { get; set; }
+        public string Version { get; set; }
+        public string ReleaseNotes { get; set; }
+        public string Owners { get; set; }
+        public string Authors { get; set; }
+        public string Description { get; set; }
+        public string ProjectUrl { get; set; }
 
         //This isn't filled in from appsettings
-        public bool DebugMode { get; }
-        public string DebugOrRelease { get; }
+        public bool DebugMode { get; set;  }
+        public bool OverwriteCachedVersion { get; set; }
+
+        public string DebugOrRelease => DebugMode ? "Debug" : "Release";
+
         //Only true if you should add symbols to the files
         public bool IncludeSymbols => AddSymbols == Settings.AddSymbolsOptions.Both ||
                                       AddSymbols.ToString() == DebugOrRelease;
 
         private static readonly string[] PropertiesToIgnore = new[]
         {
-            nameof(LogLevel), nameof(AddSymbols), nameof(DebugMode), nameof(DebugOrRelease), nameof(IncludeSymbols)
+            nameof(LogLevel), nameof(AddSymbols), //Let out because have to be done by hand
+            nameof(DebugOrRelease), nameof(IncludeSymbols), //lambda properties
+            nameof(DebugMode), nameof(OverwriteCachedVersion) //set from arguments
         };
 
-        public Settings(IConfiguration configuration, bool debugMode, string solutionDir)
+        public Settings(IConfiguration configuration, string solutionDir)
         {
             var properties = GetType().GetProperties()
                 .Where(x => !PropertiesToIgnore.Contains(x.Name));
@@ -59,17 +64,15 @@ namespace BuildNuspecs.Helpers
             if (string.IsNullOrEmpty(RootName))
                 RootName = solutionDir.GetSolutionFilename();
 
-            if (string.IsNullOrEmpty(MainProject))
-                MainProject = $"{RootName}.AppSetup";
-            else if (MainProject[0] == '.') 
-                MainProject = $"{RootName}{MainProject}";
-
             if (string.IsNullOrEmpty(NuGetId))
                 NuGetId = RootName;
 
+            if (string.IsNullOrEmpty(NuGetCachePath))
+                NuGetCachePath = configuration["OS"].Contains("Windows")
+                    ? $"{configuration["USERPROFILE"]}\\.nuget\\packages"
+                    : "~/.nuget/packages";
+
             //setting that need a bit more work
-            DebugMode = debugMode;
-            DebugOrRelease = debugMode ? "Debug" : "Release";
 
             var logLevelString = configuration[nameof(LogLevel)];
             LogLevel = string.IsNullOrEmpty(logLevelString)
