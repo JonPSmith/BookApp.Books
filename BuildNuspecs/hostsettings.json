@@ -11,8 +11,8 @@
 
   //NuGet information
   "NuGetId": null, //if null then uses RootName, If not null defines the NuGet ID
-  "Version": "1.0.0-preview024",
-  "ReleaseNotes": "No Test but Domain is now 2.0",
+  "Version": "1.0.0-preview026",
+  "ReleaseNotes": "Test in Nuget. Domain is 2.1",
   "Owners": "Selective Analytics",
   "Authors": "Jon P Smith",
   "Description": "Books bounded context in the example evolving Modular Monolith series",
