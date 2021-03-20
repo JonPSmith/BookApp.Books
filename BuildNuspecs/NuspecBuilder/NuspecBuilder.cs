@@ -42,6 +42,11 @@ namespace BuildNuspecs.NuspecBuilder
                         }).ToArray()
                 }).ToArray();
 
+            var diffFrameworks = appInfo.AllProjects.Select(x => x.TargetFramework).Distinct();
+            if (diffFrameworks.Count() > 1)
+                consoleOut.LogMessage($"The projects use multiple frameworks ({(string.Join(", ", diffFrameworks))}.\n" +
+                                      $"That usually has problems unless the project that uses this uses multiple frameworks too.", LogLevel.Warning);
+
             package.files = appInfo.AllProjects.SelectMany(x =>
             {
 
@@ -77,7 +82,7 @@ namespace BuildNuspecs.NuspecBuilder
                 {
                     var pdbPath = pathToDir + $"{x.ProjectName}.pdb";
                     if (!File.Exists(pdbPath))
-                        consoleOut.LogMessage($"You asked for symbols by {x.ProjectName} doesn't have a symbols (.pdb) file", LogLevel.Warning);
+                        consoleOut.LogMessage($"You asked for symbols by {x.ProjectName} doesn't have a .pdb file", LogLevel.Warning);
                     else
                     {
                         result.Add(new packageFile
