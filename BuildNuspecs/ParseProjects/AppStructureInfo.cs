@@ -36,30 +36,37 @@ namespace BuildNuspecs.ParseProjects
 
         public List<ProjectInfo> AllProjects { get; private set; }
 
-        public List<NuGetInfo> AllNuGetInfosDistinct { get; private set; }
+        public Dictionary<string, List<NuGetInfo>> NuGetInfosDistinctByFramework { get; private set; }
 
         private void SetupAllNuGetInfosDistinctWithChecks(ConsoleOutput consoleOut)
         {
-            var groupedNuGets = AllProjects.SelectMany(x => x.NuGetPackages)
-                .GroupBy(x => x.NuGetId);
-
-            var allNuGets = new List<NuGetInfo>();
-            foreach (var groupedNuGet in groupedNuGets
-                .GroupBy(x => x.ToList().Select(z => z.Version) ))
+            var projectsByFramework = AllProjects.GroupBy(x => x.TargetFramework);
+            NuGetInfosDistinctByFramework = new Dictionary<string, List<NuGetInfo>>();
+            foreach (var projectsInFramework in projectsByFramework)
             {
-                var versionDistinct = groupedNuGet.Key.Distinct().ToList();
-                if (versionDistinct.Count > 1)
-                    consoleOut.LogMessage($"{groupedNuGet.Key} NuGet has multiple versions: \n {string.Join("\n", versionDistinct)}", LogLevel.Error);
-                allNuGets.Add(groupedNuGet.Single().First());
-            }
+                var groupedNuGets = projectsInFramework.SelectMany(x => x.NuGetPackages)
+                    .GroupBy(x => x.NuGetId);
 
-            AllNuGetInfosDistinct = allNuGets;
+                var allNuGets = new List<NuGetInfo>();
+                foreach (var groupedNuGet in groupedNuGets
+                    .GroupBy(x => x.ToList().Select(z => z.Version)))
+                {
+                    var versionDistinct = groupedNuGet.Key.Distinct().ToList();
+                    if (versionDistinct.Count > 1)
+                        consoleOut.LogMessage(
+                            $"{groupedNuGet.Key} NuGet has multiple versions: \n {string.Join("\n", versionDistinct)}",
+                            LogLevel.Error);
+                    allNuGets.Add(groupedNuGet.Single().First());
+                }
+
+                NuGetInfosDistinctByFramework[projectsInFramework.Key] = allNuGets;
+            }
         }
 
         public override string ToString()
         {
             return
-                $"Found {AllProjects.Count} projects starting with {RootName}, with {AllNuGetInfosDistinct.Count} NuGet packages.";
+                $"Found {AllProjects.Count} projects starting with {RootName}, with {NuGetInfosDistinctByFramework.Values.Sum(x => x.Count)} NuGet packages.";
         }
     }
 }

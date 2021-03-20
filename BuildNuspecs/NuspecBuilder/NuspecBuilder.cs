@@ -30,20 +30,17 @@ namespace BuildNuspecs.NuspecBuilder
                 }
             };
 
-            package.metadata.dependencies = new packageMetadataDependencies
-            {
-                group = new packageMetadataDependenciesGroup
+            package.metadata.dependencies = appInfo.NuGetInfosDistinctByFramework.Keys.Select(key =>
+                new packageMetadataGroup
                 {
-                    targetFramework = appInfo.RootProjects.First().TargetFramework,
-                    dependency = appInfo.AllNuGetInfosDistinct.Select(x =>
-                        new packageMetadataDependenciesGroupDependency
+                    targetFramework = key,
+                    dependency = appInfo.NuGetInfosDistinctByFramework[key].Select(nuGetInfo =>
+                        new packageMetadataGroupDependency
                         {
-                            id = x.NuGetId,
-                            version = x.Version
+                            id = nuGetInfo.NuGetId,
+                            version = nuGetInfo.Version
                         }).ToArray()
-                }
-            };
-
+                }).ToArray();
 
             package.files = appInfo.AllProjects.SelectMany(x =>
             {

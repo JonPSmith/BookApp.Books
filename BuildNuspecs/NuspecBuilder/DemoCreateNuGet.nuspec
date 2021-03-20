@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>ModMon.Books</id>
     <version>1.0.0-preview001</version>
+    <releaseNotes>notes</releaseNotes>
     <authors>Jon P Smith</authors>
     <owners>Jon P Smith</owners>
     <description>Books bounded context in the example evolving Modular Monolith series</description>
@@ -11,6 +11,10 @@
 
     <dependencies>
       <group targetFramework="netstandard2.1">
+        <dependency id="GenericServices.StatusGeneric" version="1.1.0" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="5.0.3" />
+      </group>
+      <group targetFramework="net5.0">
         <dependency id="GenericServices.StatusGeneric" version="1.1.0" />
         <dependency id="Microsoft.EntityFrameworkCore" version="5.0.3" />
       </group>

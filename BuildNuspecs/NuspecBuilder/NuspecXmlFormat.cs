@@ -5,6 +5,8 @@ namespace BuildNuspecs.NuspecBuilder
 {
 
 
+
+
     // NOTE: Generated code may require at least .NET Framework 4.5 or .NET Core/Standard 2.0.
     /// <remarks/>
     [System.SerializableAttribute()]
@@ -67,7 +69,7 @@ namespace BuildNuspecs.NuspecBuilder
 
         private string projectUrlField;
 
-        private packageMetadataDependencies dependenciesField;
+        private packageMetadataGroup[] dependenciesField;
 
         /// <remarks/>
         public string id
@@ -107,6 +109,7 @@ namespace BuildNuspecs.NuspecBuilder
                 this.releaseNotesField = value;
             }
         }
+
         /// <remarks/>
         public string authors
         {
@@ -160,7 +163,8 @@ namespace BuildNuspecs.NuspecBuilder
         }
 
         /// <remarks/>
-        public packageMetadataDependencies dependencies
+        [System.Xml.Serialization.XmlArrayItemAttribute("group", IsNullable = false)]
+        public packageMetadataGroup[] dependencies
         {
             get
             {
@@ -177,39 +181,16 @@ namespace BuildNuspecs.NuspecBuilder
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd")]
-    public partial class packageMetadataDependencies
+    public partial class packageMetadataGroup
     {
 
-        private packageMetadataDependenciesGroup groupField;
-
-        /// <remarks/>
-        public packageMetadataDependenciesGroup group
-        {
-            get
-            {
-                return this.groupField;
-            }
-            set
-            {
-                this.groupField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd")]
-    public partial class packageMetadataDependenciesGroup
-    {
-
-        private packageMetadataDependenciesGroupDependency[] dependencyField;
+        private packageMetadataGroupDependency[] dependencyField;
 
         private string targetFrameworkField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("dependency")]
-        public packageMetadataDependenciesGroupDependency[] dependency
+        public packageMetadataGroupDependency[] dependency
         {
             get
             {
@@ -240,7 +221,7 @@ namespace BuildNuspecs.NuspecBuilder
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd")]
-    public partial class packageMetadataDependenciesGroupDependency
+    public partial class packageMetadataGroupDependency
     {
 
         private string idField;
@@ -315,6 +296,7 @@ namespace BuildNuspecs.NuspecBuilder
             }
         }
     }
+
 
 
 

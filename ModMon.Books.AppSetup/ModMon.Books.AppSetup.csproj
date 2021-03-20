@@ -4,6 +4,11 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>embedded</DebugType>
+    <EmbedAllSources>true</EmbedAllSources>
+  </PropertyGroup>
+
   <PropertyGroup>
     <DocumentationFile>C:\Users\JonPSmith\source\repos\ModMon.Books\ModMon.Books.AppSetup\ModMon.Books.AppSetup.xml</DocumentationFile>
   </PropertyGroup>
