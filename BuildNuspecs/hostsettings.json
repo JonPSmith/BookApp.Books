@@ -11,8 +11,8 @@
 
   //NuGet information
   "NuGetId": null, //if null then uses RootName, If not null defines the NuGet ID
-  "Version": "1.0.0-preview020",
-  "ReleaseNotes": "With lots of extra features",
+  "Version": "1.0.0-preview023",
+  "ReleaseNotes": "Included ModMon.Books.Test (Domain now 2.1)",
   "Owners": "Selective Analytics",
   "Authors": "Jon P Smith",
   "Description": "Books bounded context in the example evolving Modular Monolith series",

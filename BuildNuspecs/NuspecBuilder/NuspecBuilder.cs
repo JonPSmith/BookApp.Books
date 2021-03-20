@@ -44,46 +44,49 @@ namespace BuildNuspecs.NuspecBuilder
 
             package.files = appInfo.AllProjects.SelectMany(x =>
             {
+
                 var pathToDir = Path.GetDirectoryName(x.ProjectPath)
                     .GetCorrectAssemblyPath(settings.DebugOrRelease, x.TargetFramework);
-                var projectFileTypes = Directory.GetFiles(pathToDir, $"{x.ProjectName}.*")
-                    .ToDictionary(x => Path.GetExtension(x));
 
-                if (!projectFileTypes.ContainsKey(".dll"))
+                var dllPath = pathToDir + $"{x.ProjectName}.dll";
+
+                if (!File.Exists(dllPath))
                     consoleOut.LogMessage($"The project {x.ProjectName} doesn't have a .dll file", LogLevel.Error);
-                consoleOut.LogMessage($"The project {x.ProjectName} doesn't have a symbols (.pdb) file", LogLevel.Debug);
 
-                consoleOut.LogMessage($"Added {x.ProjectName}.dll file to NuGet files", LogLevel.Debug);
                 var result = new List<packageFile>
                 {
                     new packageFile
                     {
-                        src = pathToDir + $"{x.ProjectName}.dll",
+                        src = dllPath,
                         target = $"lib\\{x.TargetFramework}"
                     }
                 };
-                if (projectFileTypes.ContainsKey(".xml"))
+                consoleOut.LogMessage($"Added {x.ProjectName}.dll file to NuGet files", LogLevel.Debug);
+                var xmlPath = pathToDir + $"{x.ProjectName}.xml";
+                if (File.Exists(xmlPath))
                 {
-                    consoleOut.LogMessage($"Added {x.ProjectName}.xml file to NuGet files", LogLevel.Debug);
                     result.Add(new packageFile
                     {
-                        src = pathToDir + $"{x.ProjectName}.xml",
+                        src = xmlPath,
                         target = $"lib\\{x.TargetFramework}"
                     });
+                    consoleOut.LogMessage($"Added {x.ProjectName}.xml file to NuGet files", LogLevel.Debug);
                 }
+
                 if (settings.IncludeSymbols)
                 {
-                    if (!projectFileTypes.ContainsKey(".dll"))
+                    var pdbPath = pathToDir + $"{x.ProjectName}.pdb";
+                    if (!File.Exists(pdbPath))
                         consoleOut.LogMessage($"You asked for symbols by {x.ProjectName} doesn't have a symbols (.pdb) file", LogLevel.Warning);
                     else
                     {
-                        consoleOut.LogMessage($"Added {x.ProjectName}.pdb file to NuGet files", LogLevel.Debug);
                         result.Add(new packageFile
                         {
                             src = pathToDir + $"{x.ProjectName}.pdb",
                             target = $"lib\\{x.TargetFramework}"
                         });
                     }
+                    consoleOut.LogMessage($"The project {x.ProjectName} symbols (.pdb) file", LogLevel.Debug);
                 }
                 return result;
 
