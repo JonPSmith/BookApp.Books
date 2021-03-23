@@ -46,7 +46,7 @@ namespace BuildNuspecs.Helpers
             nameof(DebugMode), nameof(OverwriteCachedVersion) //set from arguments
         };
 
-        public Settings(IConfiguration configuration, string solutionDir)
+        public Settings(IConfiguration configuration, ConsoleOutput consoleOutput, string solutionDir)
         {
             var properties = GetType().GetProperties()
                 .Where(x => !PropertiesToIgnore.Contains(x.Name));
@@ -62,7 +62,7 @@ namespace BuildNuspecs.Helpers
             }
 
             if (string.IsNullOrEmpty(RootName))
-                RootName = solutionDir.GetSolutionFilename();
+                RootName = solutionDir.GetSolutionFilename(consoleOutput);
 
             if (string.IsNullOrEmpty(NuGetId))
                 NuGetId = RootName;

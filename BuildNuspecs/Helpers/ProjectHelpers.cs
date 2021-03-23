@@ -6,6 +6,7 @@ using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Microsoft.Extensions.Logging;
 
 namespace BuildNuspecs.Helpers
 {
@@ -29,11 +30,13 @@ namespace BuildNuspecs.Helpers
             return Path.GetFullPath(Path.Combine(executingProjectPath, "..\\"));
         }
 
-        public static string GetSolutionFilename(this string solutionDir)
+        public static string GetSolutionFilename(this string solutionDir, ConsoleOutput consoleOutput)
         {
             var files = Directory.GetFiles(solutionDir, "*.sln");
+            if (files.Length > 1)
+                throw new Exception( $"Found {files.Length} solution files. I can't handle that!");
             if (files.Length != 1)
-                throw new Exception($"Found {files.Length} solution files. I can't handle that!");
+                consoleOutput.LogMessage($"You didn't provide a setting for \"RootName\", and couldn't find a solution (.sln) file.", LogLevel.Error);
             return Path.GetFileNameWithoutExtension(files.Single());
         }
 

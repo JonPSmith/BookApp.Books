@@ -5,7 +5,7 @@
   "RootName": null, //If null then uses solution name. If not null defined the RootName
   "LogLevel": null, //defines what is written to the Console (uses LogLevel names), if null the is set to Information
   "AddSymbols": null, // Can be "None", "Debug", "Release" or "Both", if null then is "None"
-  "NuGetCachePath":  null, //if null then set to default for type of dev computer. If your path is different then set this 
+  "NuGetCachePath": null, //if null then set to default for type of dev computer. If your path is different then set this 
   "AutoPack": true, //If true the console app calls the "dotnet pack" command 
   "CopyNuGetTo": "C:\\Users\\JonPSmith\\LocalNuGet", //if AutoPack == true && not empty, then copies NuGet to this dir
 

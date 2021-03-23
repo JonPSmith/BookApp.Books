@@ -35,12 +35,11 @@ namespace BuildNuspecs
             var thisProjPath = ProjectHelpers.GetExecutingAssemblyPath();
             var solutionDir = thisProjPath.GetSolutionPathFromProjectPath();
 
-            _settings = new Settings(_configuration, solutionDir);
+            _settings = new Settings(_configuration, _consoleOut, solutionDir);
             args.DecodeArgsAndUpdateSettings(_consoleOut, _settings);
             _consoleOut.DefaultLogLevel = _settings.LogLevel;
 
-            var rootName = solutionDir.GetSolutionFilename();
-            _appInfo = solutionDir.ParseModularMonolithApp(rootName, _consoleOut);
+            _appInfo = solutionDir.ParseModularMonolithApp(_settings.RootName, _consoleOut);
             _consoleOut.LogMessage(_appInfo.ToString(), LogLevel.Information);
             _settings.BuildNuspecFile(_appInfo, _consoleOut);
 
@@ -82,11 +81,13 @@ namespace BuildNuspecs
                                     _settings.NuGetFileName() + ".nupkg";
                 var nuGetToPath = Path.Combine( _settings.CopyNuGetTo , _settings.NuGetFileName() + ".nupkg");
                 var fileIsOverwritten = File.Exists(nuGetToPath);
-
-                File.Copy(nuGetFromPath, nuGetToPath, true);
-                _consoleOut.LogMessage($"Copied created NuGet package to {_settings.CopyNuGetTo}", LogLevel.Information);
                 if (fileIsOverwritten && !_settings.OverwriteCachedVersion)
-                    _consoleOut.LogMessage("Copy overwrites existing NuGet package. If package is already installed you can't update it.", LogLevel.Warning);
+                    _consoleOut.LogMessage("NuGet package NOT copied local NuGet server because package with that version already exists.", LogLevel.Warning);
+                else
+                {
+                    File.Copy(nuGetFromPath, nuGetToPath, true);
+                    _consoleOut.LogMessage($"Copied created NuGet package to {_settings.CopyNuGetTo}", LogLevel.Information);
+                }
             }
 
             if (_settings.OverwriteCachedVersion)
