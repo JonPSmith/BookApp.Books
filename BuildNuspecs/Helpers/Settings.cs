@@ -14,6 +14,7 @@ namespace BuildNuspecs.Helpers
         public enum AddSymbolsOptions { None, Debug, Release, Both}
 
         public string RootName { get; set; }
+        public string ExcludeProjects { get; set; }
         public AddSymbolsOptions AddSymbols { get; set; }
         public bool AutoPack { get; set; }
         public string CopyNuGetTo { get; set; }

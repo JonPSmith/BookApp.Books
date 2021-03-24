@@ -6,20 +6,51 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using BuildNuspecs.Helpers;
+using Microsoft.Extensions.Logging;
 
 namespace BuildNuspecs.ParseProjects
 {
     public static class ProjectsParser
     {
-        public static AppStructureInfo ParseModularMonolithApp(this string solutionDir, string rootName, ConsoleOutput consoleOut)
+        public static AppStructureInfo ParseModularMonolithApp(this string solutionDir, Settings settings, ConsoleOutput consoleOut)
         {
+            string FormProjectName(string partialName)
+            {
+                return partialName.StartsWith('.')
+                    ? settings.RootName + partialName
+                    : partialName;
+            }
+
             var projFilePaths = Directory.GetDirectories(solutionDir)
-                    .Where(dir => Path.GetFileNameWithoutExtension(dir).Contains($"{rootName}"))
+                    .Where(dir => Path.GetFileNameWithoutExtension(dir).StartsWith(settings.RootName))
                     .SelectMany(dir =>
                 Directory.GetFiles(dir, "*.csproj")).ToList();
+
+            var folderNotSame = projFilePaths.Where(x =>
+                !x.Contains(Path.GetFileNameWithoutExtension(x))).ToList();
+            if(folderNotSame.Any())
+            {
+                foreach (var path in folderNotSame)
+                {
+                    consoleOut.LogMessage($"the project {Path.GetFileName(path)} isn't in a folder of the same name", LogLevel.Warning);
+                }
+                consoleOut.LogMessage($"This code relies on the project file to be in a folder of the same name.", LogLevel.Error);
+            }
+
             var pInfo = projFilePaths
                 .Select(path => new ProjectInfo(path))
                 .ToDictionary(x => x.ProjectName);
+
+            var excludedProjectNames = settings.ExcludeProjects?.Split(',')
+                .Select(x => FormProjectName(x.Trim())).ToList() ?? new List<string>();
+            foreach (var projectName in excludedProjectNames)
+            {
+                if (pInfo.Remove(projectName))
+                    consoleOut.LogMessage($"Excluded project '{projectName}'", LogLevel.Information);
+                else
+                    consoleOut.LogMessage($"Could not find a project called '{projectName}' to exclude", LogLevel.Warning);
+            }
+
             //Now we look at each csproj in turn and fill in
             //- What target framework it has (used to build Nuspec)
             //- What NuGet packages it uses (used to build Nuspec)
@@ -50,7 +81,7 @@ namespace BuildNuspecs.ParseProjects
                     .ToList() ?? new List<ProjectInfo>();
             }
 
-            return new AppStructureInfo(rootName, pInfo, consoleOut);
+            return new AppStructureInfo(settings.RootName, pInfo, consoleOut);
         }
 
         private static T DeserializeToObject<T>(this string filepath) where T : class

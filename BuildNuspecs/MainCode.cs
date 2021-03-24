@@ -39,7 +39,7 @@ namespace BuildNuspecs
             args.DecodeArgsAndUpdateSettings(_consoleOut, _settings);
             _consoleOut.DefaultLogLevel = _settings.LogLevel;
 
-            _appInfo = solutionDir.ParseModularMonolithApp(_settings.RootName, _consoleOut);
+            _appInfo = solutionDir.ParseModularMonolithApp(_settings, _consoleOut);
             _consoleOut.LogMessage(_appInfo.ToString(), LogLevel.Information);
             _settings.BuildNuspecFile(_appInfo, _consoleOut);
 
@@ -126,10 +126,10 @@ namespace BuildNuspecs
         private string FormPackCommand(string thisProjPath)
         {
             var command = _settings.DebugMode
-                ? $"pack -p:NuspecFile=CreateNuGetDebug.nuspec"
-                : $"pack -c Release -p:NuspecFile=CreateNuGetRelease.nuspec";
+                ? "pack -p:NuspecFile=CreateNuGetDebug.nuspec"
+                : "pack -c Release -p:NuspecFile=CreateNuGetRelease.nuspec";
 
-            command += " --no-build";
+            //command += " --no-build";
             if (_settings.IncludeSymbols)
                 command += " --include-symbols";
 
