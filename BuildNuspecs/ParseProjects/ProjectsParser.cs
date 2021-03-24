@@ -28,7 +28,7 @@ namespace BuildNuspecs.ParseProjects
 
             var folderNotSame = projFilePaths.Where(x =>
                 !x.Contains(Path.GetFileNameWithoutExtension(x))).ToList();
-            if(folderNotSame.Any())
+            if (folderNotSame.Any())
             {
                 foreach (var path in folderNotSame)
                 {
@@ -37,19 +37,26 @@ namespace BuildNuspecs.ParseProjects
                 consoleOut.LogMessage($"This code relies on the project file to be in a folder of the same name.", LogLevel.Error);
             }
 
-            var pInfo = projFilePaths
-                .Select(path => new ProjectInfo(path))
-                .ToDictionary(x => x.ProjectName);
-
             var excludedProjectNames = settings.ExcludeProjects?.Split(',')
                 .Select(x => FormProjectName(x.Trim())).ToList() ?? new List<string>();
             foreach (var projectName in excludedProjectNames)
             {
-                if (pInfo.Remove(projectName))
+                var excludedPath =
+                    projFilePaths.SingleOrDefault(x => Path.GetFileNameWithoutExtension(x) == projectName);
+                if (excludedPath != null)
+                {
+                    projFilePaths.Remove(excludedPath);
                     consoleOut.LogMessage($"Excluded project '{projectName}'", LogLevel.Information);
+                }
                 else
                     consoleOut.LogMessage($"Could not find a project called '{projectName}' to exclude", LogLevel.Warning);
             }
+
+
+
+            var pInfo = projFilePaths
+                .Select(path => new ProjectInfo(path))
+                .ToDictionary(x => x.ProjectName);
 
             //Now we look at each csproj in turn and fill in
             //- What target framework it has (used to build Nuspec)
