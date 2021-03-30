@@ -3,7 +3,7 @@
 
 using Xunit;
 
-namespace Test
+namespace ModMon.Books.Test
 {
     public class UnitTest1
     {
