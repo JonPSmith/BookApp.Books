@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModMon.Books.ServiceLayer.GoodLinq\ModMon.Books.ServiceLayer.GoodLinq.csproj" />
     <ProjectReference Include="..\ModMon.Books.ServiceLayer.Udfs\ModMon.Books.ServiceLayer.Udfs.csproj" />
     <ProjectReference Include="..\BookApp.Books.AppSetup\BookApp.Books.AppSetup.csproj" />
     <ProjectReference Include="..\BookApp.Books.Domain\BookApp.Books.Domain.csproj" />
@@ -31,6 +30,7 @@
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.Cached\BookApp.Books.ServiceLayer.Cached.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.Common\BookApp.Books.ServiceLayer.Common.csproj" />
     <ProjectReference Include="..\BookApp.Books.ServiceLayer.Dapper\BookApp.Books.ServiceLayer.Dapper.csproj" />
+    <ProjectReference Include="..\BookApp.Books.ServiceLayer.GoodLinq\BookApp.Books.ServiceLayer.GoodLinq.csproj" />
   </ItemGroup>
 
 </Project>
