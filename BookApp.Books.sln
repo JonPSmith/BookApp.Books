@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.Udfs", "ModMon.Books.ServiceLayer.Udfs\ModMon.Books.ServiceLayer.Udfs.csproj", "{CE0DCA21-8012-4FCD-A31B-87D94C6925E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Infrastructure.CachedValues", "ModMon.Books.Infrastructure.CachedValues\ModMon.Books.Infrastructure.CachedValues.csproj", "{234CA322-FB96-43B6-94C5-20B38AF66EE3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildNuspecs", "BuildNuspecs\BuildNuspecs.csproj", "{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AA18F01E-C7C1-494D-8DAB-3954E09CB0DA}"
@@ -32,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.AppSetup", "BookApp.Books.AppSetup\BookApp.Books.AppSetup.csproj", "{6784CC0C-D9F0-4924-8ECB-3CB7B5767BFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Domain", "BookApp.Books.Domain\BookApp.Books.Domain.csproj", "{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructure.CachedValues", "BookApp.Books.Infrastructure.CachedValues\BookApp.Books.Infrastructure.CachedValues.csproj", "{B682406B-C59E-46E6-B9AD-A45CB3D97751}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,10 +67,6 @@ Global
 		{CE0DCA21-8012-4FCD-A31B-87D94C6925E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE0DCA21-8012-4FCD-A31B-87D94C6925E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE0DCA21-8012-4FCD-A31B-87D94C6925E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{234CA322-FB96-43B6-94C5-20B38AF66EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{234CA322-FB96-43B6-94C5-20B38AF66EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{234CA322-FB96-43B6-94C5-20B38AF66EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{234CA322-FB96-43B6-94C5-20B38AF66EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,6 +83,10 @@ Global
 		{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B682406B-C59E-46E6-B9AD-A45CB3D97751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B682406B-C59E-46E6-B9AD-A45CB3D97751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B682406B-C59E-46E6-B9AD-A45CB3D97751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B682406B-C59E-46E6-B9AD-A45CB3D97751}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
