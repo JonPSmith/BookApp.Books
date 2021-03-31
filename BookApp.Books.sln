@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.Cached", "ModMon.Books.ServiceLayer.Cached\ModMon.Books.ServiceLayer.Cached.csproj", "{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.Dapper", "ModMon.Books.ServiceLayer.Dapper\ModMon.Books.ServiceLayer.Dapper.csproj", "{951015CD-8699-40B7-A605-94AF8F78A825}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.GoodLinq", "ModMon.Books.ServiceLayer.GoodLinq\ModMon.Books.ServiceLayer.GoodLinq.csproj", "{D6C26516-31E5-42EA-941C-AF2C5EDD7057}"
@@ -33,16 +31,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Persistence", "BookApp.Books.Persistence\BookApp.Books.Persistence.csproj", "{A0FA1396-67AC-4CF9-A679-462A492B5CBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.Cached", "BookApp.Books.ServiceLayer.Cached\BookApp.Books.ServiceLayer.Cached.csproj", "{77EA8714-999F-4361-9A9E-4CD057864565}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{951015CD-8699-40B7-A605-94AF8F78A825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{951015CD-8699-40B7-A605-94AF8F78A825}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{951015CD-8699-40B7-A605-94AF8F78A825}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,6 +83,10 @@ Global
 		{A0FA1396-67AC-4CF9-A679-462A492B5CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0FA1396-67AC-4CF9-A679-462A492B5CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0FA1396-67AC-4CF9-A679-462A492B5CBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77EA8714-999F-4361-9A9E-4CD057864565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77EA8714-999F-4361-9A9E-4CD057864565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77EA8714-999F-4361-9A9E-4CD057864565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77EA8714-999F-4361-9A9E-4CD057864565}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
