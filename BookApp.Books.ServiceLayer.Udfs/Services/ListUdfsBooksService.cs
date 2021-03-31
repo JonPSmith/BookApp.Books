@@ -3,14 +3,14 @@
 
 using System.Linq;
 using System.Threading.Tasks;
+using BookApp.Books.Persistence;
+using BookApp.Books.Persistence.QueryObjects;
+using BookApp.Books.ServiceLayer.Common;
+using BookApp.Books.ServiceLayer.Udfs.Dtos;
+using BookApp.Books.ServiceLayer.Udfs.QueryObjects;
 using Microsoft.EntityFrameworkCore;
-using ModMon.Books.Persistence;
-using ModMon.Books.Persistence.QueryObjects;
-using ModMon.Books.ServiceLayer.Common;
-using ModMon.Books.ServiceLayer.Udfs.Dtos;
-using ModMon.Books.ServiceLayer.Udfs.QueryObjects;
 
-namespace ModMon.Books.ServiceLayer.Udfs.Services
+namespace BookApp.Books.ServiceLayer.Udfs.Services
 {
     public class ListUdfsBooksService : IListUdfsBooksService
     {

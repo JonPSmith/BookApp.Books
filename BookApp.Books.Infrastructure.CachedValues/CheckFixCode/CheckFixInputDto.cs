@@ -3,7 +3,7 @@
 
 using System;
 
-namespace ModMon.Books.Infrastructure.CachedValues.CheckFixCode
+namespace BookApp.Books.Infrastructure.CachedValues.CheckFixCode
 {
     public class CheckFixInputDto
     {

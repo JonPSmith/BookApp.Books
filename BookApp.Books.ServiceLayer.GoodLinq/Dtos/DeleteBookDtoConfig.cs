@@ -4,10 +4,10 @@
 using System;
 using System.Linq;
 using AutoMapper;
+using BookApp.Books.Domain;
 using GenericServices.Configuration;
-using ModMon.Books.Domain;
 
-namespace ModMon.Books.ServiceLayer.GoodLinq.Dtos
+namespace BookApp.Books.ServiceLayer.GoodLinq.Dtos
 {
     class DeleteBookDtoConfig : PerDtoConfig<DeleteBookDto, Book>
     {

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace ModMon.Books.Domain
+namespace BookApp.Books.Domain
 {
     public class Tag
     {

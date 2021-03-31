@@ -4,12 +4,12 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence;
 using Microsoft.EntityFrameworkCore;
-using ModMon.Books.Domain;
-using ModMon.Books.Persistence;
 using StatusGeneric;
 
-namespace ModMon.Books.Infrastructure.CachedValues.CheckFixCode
+namespace BookApp.Books.Infrastructure.CachedValues.CheckFixCode
 {
     public static class CheckBookExtension
     {

@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using BookApp.Books.Domain;
+using BookApp.Books.Domain.SupportTypes;
+using BookApp.Books.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ModMon.Books.Domain;
-using ModMon.Books.Domain.SupportTypes;
-using ModMon.Books.Persistence;
 
-namespace ModMon.Books.Infrastructure.CachedValues.CheckFixCode
+namespace BookApp.Books.Infrastructure.CachedValues.CheckFixCode
 {
     public class CheckFixCacheValuesService : ICheckFixCacheValuesService
     {

@@ -4,7 +4,7 @@
 using System;
 using GenericEventRunner.DomainParts;
 
-namespace ModMon.Books.Domain.DomainEvents
+namespace BookApp.Books.Domain.DomainEvents
 {
     public class BookReviewAddedEvent : IEntityEvent
     {

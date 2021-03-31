@@ -3,10 +3,10 @@
 
 using System.Linq;
 using System.Threading.Tasks;
-using ModMon.Books.ServiceLayer.Common;
-using ModMon.Books.ServiceLayer.Common.Dtos;
+using BookApp.Books.ServiceLayer.Common;
+using BookApp.Books.ServiceLayer.Common.Dtos;
 
-namespace ModMon.Books.ServiceLayer.Cached
+namespace BookApp.Books.ServiceLayer.Cached
 {
     public interface IListBooksCachedService
     {

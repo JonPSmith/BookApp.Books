@@ -7,12 +7,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ModMon.Books.Domain;
-using ModMon.Books.Persistence;
 
-namespace ModMon.Books.Infrastructure.Seeding
+namespace BookApp.Books.Infrastructure.Seeding
 {
     public class BookGenerator : IBookGenerator
     {

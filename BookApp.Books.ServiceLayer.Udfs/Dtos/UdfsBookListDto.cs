@@ -3,7 +3,7 @@
 
 using System;
 
-namespace ModMon.Books.ServiceLayer.Udfs.Dtos
+namespace BookApp.Books.ServiceLayer.Udfs.Dtos
 {
     public class UdfsBookListDto
     {

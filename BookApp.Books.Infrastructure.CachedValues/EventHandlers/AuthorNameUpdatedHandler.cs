@@ -2,13 +2,13 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
+using BookApp.Books.Domain;
+using BookApp.Books.Domain.DomainEvents;
+using BookApp.Books.Persistence;
 using GenericEventRunner.ForHandlers;
-using ModMon.Books.Domain;
-using ModMon.Books.Domain.DomainEvents;
-using ModMon.Books.Persistence;
 using StatusGeneric;
 
-namespace ModMon.Books.Infrastructure.CachedValues.EventHandlers
+namespace BookApp.Books.Infrastructure.CachedValues.EventHandlers
 {
     public class AuthorNameUpdatedHandler : 
         IBeforeSaveEventHandler<AuthorNameUpdatedEvent> //#A

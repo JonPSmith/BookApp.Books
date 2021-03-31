@@ -2,11 +2,11 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.ComponentModel.DataAnnotations;
+using BookApp.Books.Domain;
 using GenericServices;
 using Microsoft.AspNetCore.Mvc;
-using ModMon.Books.Domain;
 
-namespace ModMon.Books.ServiceLayer.GoodLinq.Dtos
+namespace BookApp.Books.ServiceLayer.GoodLinq.Dtos
 {
     [IncludeThen(nameof(Book.Reviews))]
     public class AddReviewDto : ILinkToEntity<Book>

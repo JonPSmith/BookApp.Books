@@ -3,7 +3,7 @@
 
 using System;
 
-namespace ModMon.Books.Domain.SupportTypes
+namespace BookApp.Books.Domain.SupportTypes
 {
     public interface ICreatedUpdated
     {

@@ -3,7 +3,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-namespace ModMon.Books.Domain
+namespace BookApp.Books.Domain
 {
     public class BookDetails
     {

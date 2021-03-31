@@ -3,10 +3,10 @@
 
 using System;
 using System.Linq;
-using ModMon.Books.ServiceLayer.Common;
-using ModMon.Books.ServiceLayer.Common.Dtos;
+using BookApp.Books.ServiceLayer.Common;
+using BookApp.Books.ServiceLayer.Common.Dtos;
 
-namespace ModMon.Books.ServiceLayer.GoodLinq.QueryObjects
+namespace BookApp.Books.ServiceLayer.GoodLinq.QueryObjects
 {
 
     public static class BookListDtoFilter

@@ -3,10 +3,10 @@
 
 using System;
 using System.Linq;
-using ModMon.Books.ServiceLayer.Common;
-using ModMon.Books.ServiceLayer.Common.Dtos;
+using BookApp.Books.ServiceLayer.Common;
+using BookApp.Books.ServiceLayer.Common.Dtos;
 
-namespace ModMon.Books.ServiceLayer.Cached.QueryObjects
+namespace BookApp.Books.ServiceLayer.Cached.QueryObjects
 {
 
     public static class BookListDtoSort

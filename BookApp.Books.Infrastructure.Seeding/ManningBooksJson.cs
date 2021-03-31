@@ -3,12 +3,12 @@
 
 using System;
 using System.Linq;
-using ModMon.Books.Domain;
+using BookApp.Books.Domain;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMember.Global
 
-namespace ModMon.Books.Infrastructure.Seeding
+namespace BookApp.Books.Infrastructure.Seeding
 {
     public class ManningBooksJson
     {

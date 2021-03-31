@@ -2,7 +2,7 @@
   //NOTE: you MUST set the "Copy to Output Directory" property to "Copy if newer"
 
   //Information for the running of this 
-  "RootName": null, //If null then uses solution name. If not null defined the RootName
+  "RootName": null, //If null then uses solution name. If not null defines the RootName
   "ExcludeProjects":  ".Test", //excludes named projects (comma separated). If start with "." the RootName is prefixed
   "LogLevel": null, //defines what is written to the Console (uses LogLevel names), if null the is set to Information
   "AddSymbols": null, // Can be "None", "Debug", "Release" or "Both", if null then is "None"
@@ -12,8 +12,8 @@
 
   //NuGet information
   "NuGetId": null, //if null then uses RootName, If not null defines the NuGet ID
-  "Version": "1.0.0-preview026",
-  "ReleaseNotes": "Test in Nuget. Domain is 2.1",
+  "Version": "1.0.1-preview002",
+  "ReleaseNotes": "Now BookApp.Books namespace",
   "Owners": "Selective Analytics",
   "Authors": "Jon P Smith",
   "Description": "Books bounded context in the example evolving Modular Monolith series",

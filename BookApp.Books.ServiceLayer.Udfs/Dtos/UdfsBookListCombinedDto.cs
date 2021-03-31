@@ -2,9 +2,9 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
-using ModMon.Books.ServiceLayer.Common;
+using BookApp.Books.ServiceLayer.Common;
 
-namespace ModMon.Books.ServiceLayer.Udfs.Dtos
+namespace BookApp.Books.ServiceLayer.Udfs.Dtos
 {
     public class UdfsBookListCombinedDto
     {

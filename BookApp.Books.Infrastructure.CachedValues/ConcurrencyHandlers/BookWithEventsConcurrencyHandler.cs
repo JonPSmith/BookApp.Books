@@ -3,11 +3,11 @@
 
 using System;
 using System.Linq;
+using BookApp.Books.Domain;
 using Microsoft.EntityFrameworkCore;
-using ModMon.Books.Domain;
 using StatusGeneric;
 
-namespace ModMon.Books.Infrastructure.CachedValues.ConcurrencyHandlers
+namespace BookApp.Books.Infrastructure.CachedValues.ConcurrencyHandlers
 {
     public static class BookWithEventsConcurrencyHandler
     {

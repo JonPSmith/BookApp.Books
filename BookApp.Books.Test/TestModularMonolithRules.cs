@@ -8,11 +8,11 @@ using System.Reflection;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace ModMon.Books.Test
+namespace BookApp.Books.Test
 {
     public class TestModularMonolithRules
     {
-        private const string ModuleName = "ModMon.Books.";
+        private const string ModuleName = "BookApp.Books.";
 
         private readonly string[] _layersPrefixInOrder = new[]
         {
@@ -40,9 +40,13 @@ namespace ModMon.Books.Test
             //ATTEMPT
             foreach (var namespacesPrefix in CheckNotAccessingOuterLayers())
             {
-                _output.WriteLine($"Checking {namespacesPrefix.resideIn}.. does not rely on a {namespacesPrefix.notDependOn}");
+                var assembliesToCheck = AllAppAssemblies
+                    .Where(x => x.GetName().Name.StartsWith(namespacesPrefix.resideIn)).ToArray();
+                _output.WriteLine(assembliesToCheck.Any()
+                    ? $"Checking {namespacesPrefix.resideIn}.. does not rely on a {namespacesPrefix.notDependOn}"
+                    : $"No projects found in {namespacesPrefix.resideIn}.. namespace");
 
-                foreach (var assemblyToCheck in AllAppAssemblies.Where(x => x.GetName().Name.StartsWith(namespacesPrefix.resideIn)))
+                foreach (var assemblyToCheck in assembliesToCheck)
                 {
                     var badLinks = assemblyToCheck.GetReferencedAssemblies()
                         .Where(x => x.Name.StartsWith(namespacesPrefix.resideIn)).ToList();
@@ -67,6 +71,11 @@ namespace ModMon.Books.Test
             var hasErrors = false;
             foreach (var namespacePrefix in _layersPrefixInOrder)
             {
+                var assembliesToCheck = AllAppAssemblies.Where(x => x.GetName().Name.StartsWith(namespacePrefix)).ToArray();
+                _output.WriteLine(assembliesToCheck.Any()
+                    ? $"Check {namespacePrefix}.. for linking to project in same layer that hasn't got \"Common\" in its name"
+                    : $"No projects found in {namespacePrefix}.. namespace");
+
                 _output.WriteLine($"Check {namespacePrefix}.. for linking to project in same layer that hasn't got \"Common\" in its name");
                 foreach (var assemblyToCheck in AllAppAssemblies.Where(x => x.GetName().Name.StartsWith(namespacePrefix)))
                 {

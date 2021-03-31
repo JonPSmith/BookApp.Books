@@ -7,12 +7,12 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
-using ModMon.Books.Domain;
+using BookApp.Books.Domain;
 using Newtonsoft.Json;
 
 [assembly: InternalsVisibleTo("Test")]
 
-namespace ModMon.Books.Infrastructure.Seeding
+namespace BookApp.Books.Infrastructure.Seeding
 {
     public class ManningBookLoad
     {

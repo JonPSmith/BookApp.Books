@@ -3,11 +3,11 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
-using ModMon.Books.Domain.SupportTypes;
+using BookApp.Books.Domain.SupportTypes;
 
 [assembly: InternalsVisibleTo("Test")]
 
-namespace ModMon.Books.Domain
+namespace BookApp.Books.Domain
 {
     public class Review : EventsAndCreatedUpdated
     {

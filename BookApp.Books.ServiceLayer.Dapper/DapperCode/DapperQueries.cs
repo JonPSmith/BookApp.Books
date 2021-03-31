@@ -5,15 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using BookApp.Books.Persistence;
+using BookApp.Books.ServiceLayer.Common;
+using BookApp.Books.ServiceLayer.Common.Dtos;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Logging;
-using ModMon.Books.Persistence;
-using ModMon.Books.ServiceLayer.Common;
-using ModMon.Books.ServiceLayer.Common.Dtos;
 
-namespace ModMon.Books.ServiceLayer.Dapper.DapperCode
+namespace BookApp.Books.ServiceLayer.Dapper.DapperCode
 {
     public static class DapperQueries
     {

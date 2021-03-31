@@ -3,7 +3,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace ModMon.Books.Persistence
+namespace BookApp.Books.Persistence
 {
     public static class UdfDefinitions
     {

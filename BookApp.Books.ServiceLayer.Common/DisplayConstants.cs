@@ -3,7 +3,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-namespace ModMon.Books.ServiceLayer.Common
+namespace BookApp.Books.ServiceLayer.Common
 {
     public enum OrderByOptions
     {

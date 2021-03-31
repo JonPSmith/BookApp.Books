@@ -5,7 +5,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ModMon.Books.Infrastructure.Seeding
+namespace BookApp.Books.Infrastructure.Seeding
 {
     public interface IBookGenerator
     {

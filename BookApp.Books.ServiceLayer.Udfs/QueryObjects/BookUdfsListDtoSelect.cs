@@ -2,11 +2,11 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
-using ModMon.Books.Domain;
-using ModMon.Books.Persistence;
-using ModMon.Books.ServiceLayer.Udfs.Dtos;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence;
+using BookApp.Books.ServiceLayer.Udfs.Dtos;
 
-namespace ModMon.Books.ServiceLayer.Udfs.QueryObjects
+namespace BookApp.Books.ServiceLayer.Udfs.QueryObjects
 {
     public static class BookUdfsListDtoSelect
     {

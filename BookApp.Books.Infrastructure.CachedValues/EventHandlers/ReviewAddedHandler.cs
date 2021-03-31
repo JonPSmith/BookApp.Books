@@ -2,12 +2,12 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
+using BookApp.Books.Domain;
+using BookApp.Books.Domain.DomainEvents;
 using GenericEventRunner.ForHandlers;
-using ModMon.Books.Domain;
-using ModMon.Books.Domain.DomainEvents;
 using StatusGeneric;
 
-namespace ModMon.Books.Infrastructure.CachedValues.EventHandlers
+namespace BookApp.Books.Infrastructure.CachedValues.EventHandlers
 {
     public class ReviewAddedHandler :                 
         IBeforeSaveEventHandler<BookReviewAddedEvent> //#A

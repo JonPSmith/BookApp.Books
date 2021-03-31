@@ -2,10 +2,10 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
+using BookApp.Books.Domain;
 using GenericServices;
-using ModMon.Books.Domain;
 
-namespace ModMon.Books.ServiceLayer.GoodLinq.Dtos
+namespace BookApp.Books.ServiceLayer.GoodLinq.Dtos
 {
     public class SimpleBookList : ILinkToEntity<Book>
     {

@@ -2,10 +2,10 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
-using ModMon.Books.ServiceLayer.Common;
-using ModMon.Books.ServiceLayer.Common.Dtos;
+using BookApp.Books.ServiceLayer.Common;
+using BookApp.Books.ServiceLayer.Common.Dtos;
 
-namespace ModMon.Books.ServiceLayer.Cached
+namespace BookApp.Books.ServiceLayer.Cached
 {
     public interface IListBooksCachedNoCountService
     {

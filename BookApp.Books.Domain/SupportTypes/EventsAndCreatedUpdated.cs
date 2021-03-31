@@ -4,7 +4,7 @@
 using System;
 using GenericEventRunner.DomainParts;
 
-namespace ModMon.Books.Domain.SupportTypes
+namespace BookApp.Books.Domain.SupportTypes
 {
     public class EventsAndCreatedUpdated : EntityEventsBase, ICreatedUpdated
     {

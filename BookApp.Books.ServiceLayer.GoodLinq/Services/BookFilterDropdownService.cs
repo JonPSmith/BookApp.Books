@@ -4,12 +4,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ModMon.Books.Persistence;
-using ModMon.Books.ServiceLayer.Common;
-using ModMon.Books.ServiceLayer.Common.Dtos;
-using ModMon.Books.ServiceLayer.GoodLinq.QueryObjects;
+using BookApp.Books.Persistence;
+using BookApp.Books.ServiceLayer.Common;
+using BookApp.Books.ServiceLayer.Common.Dtos;
+using BookApp.Books.ServiceLayer.GoodLinq.QueryObjects;
 
-namespace ModMon.Books.ServiceLayer.GoodLinq.Services
+namespace BookApp.Books.ServiceLayer.GoodLinq.Services
 {
     public class BookFilterDropdownService : IBookFilterDropdownService
     {

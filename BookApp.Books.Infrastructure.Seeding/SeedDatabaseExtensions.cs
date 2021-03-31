@@ -4,10 +4,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using ModMon.Books.Domain;
-using ModMon.Books.Persistence;
+using BookApp.Books.Domain;
+using BookApp.Books.Persistence;
 
-namespace ModMon.Books.Infrastructure.Seeding
+namespace BookApp.Books.Infrastructure.Seeding
 {
     public static class SeedDatabaseExtensions
     {

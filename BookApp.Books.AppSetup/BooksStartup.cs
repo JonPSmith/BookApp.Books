@@ -1,19 +1,18 @@
 ﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using System;
 using System.Reflection;
+using BookApp.Books.Infrastructure.CachedValues;
+using BookApp.Books.Infrastructure.Seeding;
+using BookApp.Books.ServiceLayer.Cached;
+using BookApp.Books.ServiceLayer.Common.Dtos;
+using BookApp.Books.ServiceLayer.GoodLinq;
+using BookApp.Books.ServiceLayer.Udfs;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ModMon.Books.Infrastructure.CachedValues;
-using ModMon.Books.Infrastructure.Seeding;
-using ModMon.Books.ServiceLayer.Cached;
-using ModMon.Books.ServiceLayer.Common.Dtos;
-using ModMon.Books.ServiceLayer.GoodLinq;
-using ModMon.Books.ServiceLayer.Udfs;
 using NetCore.AutoRegisterDi;
 
-namespace ModMon.Books.AppSetup
+namespace BookApp.Books.AppSetup
 {
     public static class BooksStartup
     {

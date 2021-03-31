@@ -3,12 +3,12 @@
 
 using System.Linq;
 using System.Threading.Tasks;
+using BookApp.Books.Persistence;
+using BookApp.Books.ServiceLayer.GoodLinq.Dtos;
 using Microsoft.AspNetCore.Html;
 using Microsoft.EntityFrameworkCore;
-using ModMon.Books.Persistence;
-using ModMon.Books.ServiceLayer.GoodLinq.Dtos;
 
-namespace ModMon.Books.ServiceLayer.GoodLinq.Services
+namespace BookApp.Books.ServiceLayer.GoodLinq.Services
 {
     public class DetailBookService : IDetailBookService
     {

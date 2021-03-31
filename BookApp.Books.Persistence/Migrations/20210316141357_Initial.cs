@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ModMon.Books.Persistence.Migrations
+namespace BookApp.Books.Persistence.Migrations
 {
     public partial class Initial : Migration
     {

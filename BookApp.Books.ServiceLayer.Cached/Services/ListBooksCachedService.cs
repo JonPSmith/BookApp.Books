@@ -3,14 +3,14 @@
 
 using System.Linq;
 using System.Threading.Tasks;
+using BookApp.Books.Persistence;
+using BookApp.Books.Persistence.QueryObjects;
+using BookApp.Books.ServiceLayer.Cached.QueryObjects;
+using BookApp.Books.ServiceLayer.Common;
+using BookApp.Books.ServiceLayer.Common.Dtos;
 using Microsoft.EntityFrameworkCore;
-using ModMon.Books.Persistence;
-using ModMon.Books.Persistence.QueryObjects;
-using ModMon.Books.ServiceLayer.Cached.QueryObjects;
-using ModMon.Books.ServiceLayer.Common;
-using ModMon.Books.ServiceLayer.Common.Dtos;
 
-namespace ModMon.Books.ServiceLayer.Cached.Services
+namespace BookApp.Books.ServiceLayer.Cached.Services
 {
     public class ListBooksCachedService : IListBooksCachedService
     {

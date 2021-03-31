@@ -4,7 +4,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace ModMon.Books.Persistence
+namespace BookApp.Books.Persistence
 {
     public class DesignTimeContextFactory : IDesignTimeDbContextFactory<BookDbContext>          
     {

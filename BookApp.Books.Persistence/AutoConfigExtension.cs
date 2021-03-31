@@ -2,11 +2,11 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
+using BookApp.Books.Domain.SupportTypes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ModMon.Books.Domain.SupportTypes;
 
-namespace ModMon.Books.Persistence
+namespace BookApp.Books.Persistence
 {
     public static class AutoConfigExtension
     {

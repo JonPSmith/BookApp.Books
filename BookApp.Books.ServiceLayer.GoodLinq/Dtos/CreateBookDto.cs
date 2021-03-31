@@ -5,11 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using BookApp.Books.Domain;
 using GenericServices;
 using Microsoft.EntityFrameworkCore;
-using ModMon.Books.Domain;
 
-namespace ModMon.Books.ServiceLayer.GoodLinq.Dtos
+namespace BookApp.Books.ServiceLayer.GoodLinq.Dtos
 {
     public class CreateBookDto : ILinkToEntity<Book>
     {

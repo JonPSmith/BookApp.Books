@@ -2,11 +2,11 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Reflection;
+using BookApp.Books.Domain;
 using GenericEventRunner.ForDbContext;
 using Microsoft.EntityFrameworkCore;
-using ModMon.Books.Domain;
 
-namespace ModMon.Books.Persistence
+namespace BookApp.Books.Persistence
 {
     public class BookDbContext                  //#A
         : DbContextWithEvents<BookDbContext>    //#B
