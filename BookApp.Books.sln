@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Persistence", "ModMon.Books.Persistence\ModMon.Books.Persistence.csproj", "{E47CD4F3-36A7-405D-B11A-372967F481AA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Infrastructure.Seeding", "ModMon.Books.Infrastructure.Seeding\ModMon.Books.Infrastructure.Seeding.csproj", "{59936BD5-C2CD-4D79-8CBE-677E6DA5E146}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.Cached", "ModMon.Books.ServiceLayer.Cached\ModMon.Books.ServiceLayer.Cached.csproj", "{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.ServiceLayer.Dapper", "ModMon.Books.ServiceLayer.Dapper\ModMon.Books.ServiceLayer.Dapper.csproj", "{951015CD-8699-40B7-A605-94AF8F78A825}"
@@ -33,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Domain", "Boo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructure.CachedValues", "BookApp.Books.Infrastructure.CachedValues\BookApp.Books.Infrastructure.CachedValues.csproj", "{B682406B-C59E-46E6-B9AD-A45CB3D97751}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructure.Seeding", "BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj", "{039A3643-71AF-4C92-9439-BE06EDBBFC2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,10 +43,6 @@ Global
 		{E47CD4F3-36A7-405D-B11A-372967F481AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E47CD4F3-36A7-405D-B11A-372967F481AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E47CD4F3-36A7-405D-B11A-372967F481AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{59936BD5-C2CD-4D79-8CBE-677E6DA5E146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59936BD5-C2CD-4D79-8CBE-677E6DA5E146}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59936BD5-C2CD-4D79-8CBE-677E6DA5E146}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59936BD5-C2CD-4D79-8CBE-677E6DA5E146}.Release|Any CPU.Build.0 = Release|Any CPU
 		{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{160F9562-E2F9-4003-B0DB-6D4C7AE8B0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,6 +83,10 @@ Global
 		{B682406B-C59E-46E6-B9AD-A45CB3D97751}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B682406B-C59E-46E6-B9AD-A45CB3D97751}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B682406B-C59E-46E6-B9AD-A45CB3D97751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{039A3643-71AF-4C92-9439-BE06EDBBFC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{039A3643-71AF-4C92-9439-BE06EDBBFC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{039A3643-71AF-4C92-9439-BE06EDBBFC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{039A3643-71AF-4C92-9439-BE06EDBBFC2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

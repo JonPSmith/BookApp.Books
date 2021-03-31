@@ -20,12 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModMon.Books.Infrastructure.Seeding\ModMon.Books.Infrastructure.Seeding.csproj" />
     <ProjectReference Include="..\ModMon.Books.ServiceLayer.Cached\ModMon.Books.ServiceLayer.Cached.csproj" />
     <ProjectReference Include="..\ModMon.Books.ServiceLayer.Common\ModMon.Books.ServiceLayer.Common.csproj" />
     <ProjectReference Include="..\ModMon.Books.ServiceLayer.GoodLinq\ModMon.Books.ServiceLayer.GoodLinq.csproj" />
     <ProjectReference Include="..\ModMon.Books.ServiceLayer.Udfs\ModMon.Books.ServiceLayer.Udfs.csproj" />
     <ProjectReference Include="..\BookApp.Books.Infrastructure.CachedValues\BookApp.Books.Infrastructure.CachedValues.csproj" />
+    <ProjectReference Include="..\BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj" />
   </ItemGroup>
 
 </Project>
