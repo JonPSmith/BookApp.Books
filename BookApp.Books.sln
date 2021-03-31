@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Domain", "ModMon.Books.Domain\ModMon.Books.Domain.csproj", "{A3D52583-02A9-4954-9E10-B8F505B2F8A3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Persistence", "ModMon.Books.Persistence\ModMon.Books.Persistence.csproj", "{E47CD4F3-36A7-405D-B11A-372967F481AA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Infrastructure.Seeding", "ModMon.Books.Infrastructure.Seeding\ModMon.Books.Infrastructure.Seeding.csproj", "{59936BD5-C2CD-4D79-8CBE-677E6DA5E146}"
@@ -33,16 +31,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModMon.Books.Test", "ModMon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.AppSetup", "BookApp.Books.AppSetup\BookApp.Books.AppSetup.csproj", "{6784CC0C-D9F0-4924-8ECB-3CB7B5767BFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Domain", "BookApp.Books.Domain\BookApp.Books.Domain.csproj", "{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A3D52583-02A9-4954-9E10-B8F505B2F8A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3D52583-02A9-4954-9E10-B8F505B2F8A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3D52583-02A9-4954-9E10-B8F505B2F8A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3D52583-02A9-4954-9E10-B8F505B2F8A3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E47CD4F3-36A7-405D-B11A-372967F481AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E47CD4F3-36A7-405D-B11A-372967F481AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E47CD4F3-36A7-405D-B11A-372967F481AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,6 +83,10 @@ Global
 		{6784CC0C-D9F0-4924-8ECB-3CB7B5767BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6784CC0C-D9F0-4924-8ECB-3CB7B5767BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6784CC0C-D9F0-4924-8ECB-3CB7B5767BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
