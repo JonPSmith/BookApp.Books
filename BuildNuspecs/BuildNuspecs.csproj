@@ -20,13 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModMon.Books.Persistence\ModMon.Books.Persistence.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="hostsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookApp.Books.Persistence\BookApp.Books.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
