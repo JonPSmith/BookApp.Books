@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModMon.Books.ServiceLayer.Common\ModMon.Books.ServiceLayer.Common.csproj" />
     <ProjectReference Include="..\BookApp.Books.Persistence\BookApp.Books.Persistence.csproj" />
+    <ProjectReference Include="..\BookApp.Books.ServiceLayer.Common\BookApp.Books.ServiceLayer.Common.csproj" />
   </ItemGroup>
 
 </Project>
