@@ -2,8 +2,8 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>BookApp.Books</id>
-    <version>1.0.1-preview001</version>
-    <releaseNotes>Now BookApp.Books</releaseNotes>
+    <version>1.0.1-preview002</version>
+    <releaseNotes>Now BookApp.Books namespace</releaseNotes>
     <authors>Jon P Smith</authors>
     <owners>Selective Analytics</owners>
     <description>Books bounded context in the example evolving Modular Monolith series</description>

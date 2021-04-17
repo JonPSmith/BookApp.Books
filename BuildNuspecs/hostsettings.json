@@ -3,11 +3,11 @@
 
   //Information for the running of this 
   "RootName": null, //If null then uses solution name. If not null defines the RootName
-  "ExcludeProjects":  ".Test", //excludes named projects (comma separated). If start with "." the RootName is prefixed
   "LogLevel": null, //defines what is written to the Console (uses LogLevel names), if null the is set to Information
   "AddSymbols": null, // Can be "None", "Debug", "Release" or "Both", if null then is "None"
   "NuGetCachePath": null, //if null then set to default for type of dev computer. If your path is different then set this 
-  "AutoPack": true, //If true the console app calls the "dotnet pack" command for you
+  "ExcludeProjects":  ".Test", //excludes named projects (comma separated). If start with "." the RootName is prefixed
+  "AutoPack": true, //If true the console app calls the "dotnet pack" command for you !!! default to TRUE needed !!!
   "CopyNuGetTo": "C:\\Users\\JonPSmith\\LocalNuGet", //if AutoPack == true && not empty, then copies NuGet to this dir
 
   //NuGet information
