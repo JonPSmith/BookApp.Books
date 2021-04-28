@@ -12,23 +12,105 @@ namespace BookApp.Books.Test
 {
     public class TestModularMonolithRules
     {
-        private const string ModuleName = "BookApp.Books.";
-
-        private readonly string[] _layersPrefixInOrder = new[]
-        {
-            $"{ModuleName}ServiceLayer",
-            $"{ModuleName}Infrastructure",
-            $"{ModuleName}BizLogic",
-            $"{ModuleName}Persistence",
-            $"{ModuleName}Domain",
-        };
-        private static readonly List<Assembly> AllAppAssemblies = GetAppAssemblies(ModuleName).ToList();
 
         private readonly ITestOutputHelper _output;
 
         public TestModularMonolithRules(ITestOutputHelper output)
         {
             _output = output;
+        }
+
+
+        /// <summary>
+        /// This should set this constant to the prefix for the project names
+        /// </summary>
+        private const string ProjectPrefix = "BookApp.Books.";
+
+        /// <summary>
+        /// This should define the prefix of projects in each layer.
+        /// Note that they should be in order, with the higher levels coming first 
+        /// </summary>
+        private readonly string[] _layersPrefixInOrder = new[]
+        {
+            $"{ProjectPrefix}ServiceLayer",
+            $"{ProjectPrefix}Infrastructure",
+            $"{ProjectPrefix}BizLogic",
+            $"{ProjectPrefix}Persistence",
+            $"{ProjectPrefix}Domain",
+        };
+
+        /// <summary>
+        /// This should contain the project names to ignore
+        /// </summary>
+        private static readonly string[] _assembliesToIgnore = new[]
+        {
+            $"{ProjectPrefix}AppSetup",
+            $"{ProjectPrefix}Test",
+        };
+
+        //Holds all the the assemblies starting with the prefix
+        private static readonly List<Assembly> AllAppAssemblies = GetAppAssemblies().ToList();
+
+        /// <summary>
+        /// This finds all the projects (assemblies) that the unit test is is linked to and filters them
+        /// to only look at the projects starting with the NameSpacePrefix constant and not in the ignore list
+        /// </summary>
+        /// <returns></returns>
+        private static IEnumerable<Assembly> GetAppAssemblies()
+        {
+            //see https://stackoverflow.com/a/55672480/1434764
+            var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            foreach (var path in Directory.GetFiles(assemblyFolder, $"{ProjectPrefix}*.dll"))
+            {
+                if (_assembliesToIgnore.Contains( Path.GetFileNameWithoutExtension(path)))
+                    continue;
+
+                yield return Assembly.LoadFrom(path);
+            }
+        }
+
+        /// <summary>
+        /// This returns the a list of two layer names: a higher level and a lower level
+        /// This list provides every combination of higher and lower levels so that the code
+        /// can check that lower levels don't reference a higher level
+        /// </summary>
+        /// <returns>
+        /// higherLayer = a higher layer name
+        /// lowerLayer = a lower layer that should not refer to the higher layer
+        /// </returns>
+        private IEnumerable<(string higherLayer, string lowerLayer)> CheckNotAccessingOuterLayers()
+        {
+            for (int i = 1; i < _layersPrefixInOrder.Length; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    yield return (_layersPrefixInOrder[i], _layersPrefixInOrder[j]);
+                }
+            }
+        }
+
+        [Fact]
+        public void CheckNoUnknownProjects()
+        {
+            //SETUP
+            var hasErrors = false;
+            var assemblies = AllAppAssemblies.ToList();
+
+            //ATTEMPT
+            foreach (var prefix in _layersPrefixInOrder)
+            {
+                var assembliesInLayer = assemblies.Where(x => x.GetName().Name.StartsWith(prefix)).ToList();
+                assembliesInLayer.ForEach(x => assemblies.Remove(x));
+            }
+
+            //VERIFY
+            if (assemblies.Any())
+            {
+                _output.WriteLine(
+                    "The following projects aren't in the valid layer names. Please add to ignore list if they are OK");
+                _output.WriteLine(string.Join(", ", assemblies.Select(x => x.GetName().Name)));
+                Assert.False(hasErrors);
+            }
         }
 
         [Fact]
@@ -41,15 +123,15 @@ namespace BookApp.Books.Test
             foreach (var namespacesPrefix in CheckNotAccessingOuterLayers())
             {
                 var assembliesToCheck = AllAppAssemblies
-                    .Where(x => x.GetName().Name.StartsWith(namespacesPrefix.resideIn)).ToArray();
+                    .Where(x => x.GetName().Name.StartsWith(namespacesPrefix.higherLayer)).ToArray();
                 _output.WriteLine(assembliesToCheck.Any()
-                    ? $"Checking {namespacesPrefix.resideIn}.. does not rely on a {namespacesPrefix.notDependOn}"
-                    : $"No projects found in {namespacesPrefix.resideIn}.. namespace");
+                    ? $"Checking {namespacesPrefix.higherLayer}.. does not rely on a {namespacesPrefix.lowerLayer}"
+                    : $"No projects found in {namespacesPrefix.higherLayer}.. namespace");
 
                 foreach (var assemblyToCheck in assembliesToCheck)
                 {
                     var badLinks = assemblyToCheck.GetReferencedAssemblies()
-                        .Where(x => x.Name.StartsWith(namespacesPrefix.resideIn)).ToList();
+                        .Where(x => x.Name.StartsWith(namespacesPrefix.lowerLayer)).ToList();
                     if (badLinks.Any())
                     {
                         hasErrors = true;
@@ -96,25 +178,6 @@ namespace BookApp.Books.Test
             }
         }
 
-        private IEnumerable<(string resideIn, string notDependOn)> CheckNotAccessingOuterLayers()
-        {
-            for (int i = 1; i < _layersPrefixInOrder.Length; i++)
-            {
-                for (int j = 0; j < i; j++)
-                {
-                    yield return (_layersPrefixInOrder[i], _layersPrefixInOrder[j]);
-                }
-            }
-        }
 
-        private static IEnumerable<Assembly> GetAppAssemblies(string nameSpacePrefix)
-        {
-            //see https://stackoverflow.com/a/55672480/1434764
-            var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            foreach (var path in Directory.GetFiles(assemblyFolder, $"{nameSpacePrefix}*.dll"))
-            {
-                yield return Assembly.LoadFrom(path);
-            }
-        }
     }
 }
