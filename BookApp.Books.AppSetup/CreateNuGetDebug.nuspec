@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>BookApp.Books</id>
+    <version>1.1.0-preview001</version>
+    <authors>Jon P Smith</authors>
+    <description>The bounded context handling Books turned into a NuGet package</description>
+    <releaseNotes>First version using new MultiProjPack tool</releaseNotes>
+    <dependencies>
+      <group targetFramework="netstandard2.1">
+        <dependency id="Microsoft.Extensions.Configuration" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="5.0.0" />
+        <dependency id="NetCore.AutoRegisterDi" version="2.1.0" />
+        <dependency id="EfCore.GenericEventRunner.DomainParts" version="2.2.1" />
+        <dependency id="GenericServices.StatusGeneric" version="1.1.0" />
+        <dependency id="System.ComponentModel.Annotations" version="5.0.0" />
+        <dependency id="EfCore.GenericEventRunner" version="2.3.2" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="5.0.1" />
+        <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="5.0.1" />
+        <dependency id="Microsoft.EntityFrameworkCore.Tools" version="5.0.1" />
+        <dependency id="Dapper" version="2.0.78" />
+        <dependency id="EfCore.GenericServices" version="5.0.0" />
+        <dependency id="Microsoft.AspNetCore.Http" version="2.2.2" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="2.2.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\BookApp.Books.AppSetup\bin\Debug\netstandard2.1\BookApp.Books.AppSetup.dll" target="lib\netstandard2.1" />
+    <file src="..\BookApp.Books.Domain\bin\Debug\netstandard2.1\BookApp.Books.Domain.dll" target="lib\netstandard2.1" />
+    <file src="..\BookApp.Books.Infrastructure.CachedValues\bin\Debug\netstandard2.1\BookApp.Books.Infrastructure.CachedValues.dll" target="lib\netstandard2.1" />
+    <file src="..\BookApp.Books.Infrastructure.Seeding\bin\Debug\netstandard2.1\BookApp.Books.Infrastructure.Seeding.dll" target="lib\netstandard2.1" />
+    <file src="..\BookApp.Books.Persistence\bin\Debug\netstandard2.1\BookApp.Books.Persistence.dll" target="lib\netstandard2.1" />
+    <file src="..\BookApp.Books.ServiceLayer.Cached\bin\Debug\netstandard2.1\BookApp.Books.ServiceLayer.Cached.dll" target="lib\netstandard2.1" />
+    <file src="..\BookApp.Books.ServiceLayer.Common\bin\Debug\netstandard2.1\BookApp.Books.ServiceLayer.Common.dll" target="lib\netstandard2.1" />
+    <file src="..\BookApp.Books.ServiceLayer.Dapper\bin\Debug\netstandard2.1\BookApp.Books.ServiceLayer.Dapper.dll" target="lib\netstandard2.1" />
+    <file src="..\BookApp.Books.ServiceLayer.GoodLinq\bin\Debug\netstandard2.1\BookApp.Books.ServiceLayer.GoodLinq.dll" target="lib\netstandard2.1" />
+    <file src="..\BookApp.Books.ServiceLayer.Udfs\bin\Debug\netstandard2.1\BookApp.Books.ServiceLayer.Udfs.dll" target="lib\netstandard2.1" />
+  </files>
+</package>

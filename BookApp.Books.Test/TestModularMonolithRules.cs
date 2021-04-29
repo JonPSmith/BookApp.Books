@@ -35,6 +35,7 @@ namespace BookApp.Books.Test
             $"{ProjectPrefix}ServiceLayer",
             $"{ProjectPrefix}Infrastructure",
             $"{ProjectPrefix}BizLogic",
+            $"{ProjectPrefix}BizDbAccess",
             $"{ProjectPrefix}Persistence",
             $"{ProjectPrefix}Domain",
         };

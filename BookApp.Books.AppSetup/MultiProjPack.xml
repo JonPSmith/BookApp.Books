@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<allsettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- this contains the typical information you should have in your settings -->
+<!-- See documentation for all the possible values -->
+  <metadata>
+    <id>BookApp.Books</id>
+    <version>1.1.0-preview001</version>
+    <authors>Jon P Smith</authors>
+    <description>The bounded context handling Books turned into a NuGet package</description>
+    <releaseNotes>First version using new MultiProjPack tool</releaseNotes>
+  </metadata>
+  <toolSettings>
+    <!-- This is used to find projects with names starting with this. If null then uses NuGet id -->
+    <NamespacePrefix></NamespacePrefix>
+    <!-- excludes named projects (comma separated), e.g. "Test" would exclude a project starting with "BookApp.Books.Test" -->
+    <ExcludeProjects>Test</ExcludeProjects>
+    <!-- worth filling in with your local NuGet Package Source folder. See docs about using {USERPROFILE} in string -->
+    <CopyNuGetTo>{USERPROFILE}\LocalNuGet</CopyNuGetTo> 
+  </toolSettings>
+</allsettings>
