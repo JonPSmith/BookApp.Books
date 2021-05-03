@@ -24,8 +24,6 @@ namespace BookApp.Books.Test
                 "AppSetup,Test");
         }
 
-        private LogLevel ShowLevel = LogLevel.Information;
-
         [Fact]
         public void CheckNoUnknownProjects()
         {
@@ -78,8 +76,6 @@ namespace BookApp.Books.Test
             Assert.Equal(0, _rulesChecker.NumErrorsInTest);
         }
 
-        //--------------------------------------------------------------------------------
-
         [Fact]
         public void TestThatEachBoundedContextsObeysTheOneProjectPerLayer()
         {
@@ -116,7 +112,6 @@ namespace BookApp.Books.Test
             //VERIFY
             Assert.Equal(0, _rulesChecker.NumErrorsInTest);
         }
-
 
         [Fact]
         public void TestLowerLayersDoNotDependOnHigherLayers()
@@ -155,7 +150,6 @@ namespace BookApp.Books.Test
             }
         }
 
-
         [Fact]
         public void TestOnlyAccessesProjectsInSameNameSpaceOtherThanCommon()
         {
@@ -187,7 +181,6 @@ namespace BookApp.Books.Test
                 Assert.Equal(0, _rulesChecker.NumErrorsInTest);
             }
         }
-
 
     }
 }
