@@ -3,35 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildNuspecs", "BuildNuspecs\BuildNuspecs.csproj", "{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AA18F01E-C7C1-494D-8DAB-3954E09CB0DA}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 		ReleaseNotes.md = ReleaseNotes.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.AppSetup", "BookApp.Books.AppSetup\BookApp.Books.AppSetup.csproj", "{6784CC0C-D9F0-4924-8ECB-3CB7B5767BFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.AppSetup", "BookApp.Books.AppSetup\BookApp.Books.AppSetup.csproj", "{6784CC0C-D9F0-4924-8ECB-3CB7B5767BFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Domain", "BookApp.Books.Domain\BookApp.Books.Domain.csproj", "{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Domain", "BookApp.Books.Domain\BookApp.Books.Domain.csproj", "{6735F748-6FD7-4D7E-B6FC-1D5EA47DB251}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructure.CachedValues", "BookApp.Books.Infrastructure.CachedValues\BookApp.Books.Infrastructure.CachedValues.csproj", "{B682406B-C59E-46E6-B9AD-A45CB3D97751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Infrastructure.CachedValues", "BookApp.Books.Infrastructure.CachedValues\BookApp.Books.Infrastructure.CachedValues.csproj", "{B682406B-C59E-46E6-B9AD-A45CB3D97751}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Infrastructure.Seeding", "BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj", "{039A3643-71AF-4C92-9439-BE06EDBBFC2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Infrastructure.Seeding", "BookApp.Books.Infrastructure.Seeding\BookApp.Books.Infrastructure.Seeding.csproj", "{039A3643-71AF-4C92-9439-BE06EDBBFC2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Persistence", "BookApp.Books.Persistence\BookApp.Books.Persistence.csproj", "{A0FA1396-67AC-4CF9-A679-462A492B5CBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Persistence", "BookApp.Books.Persistence\BookApp.Books.Persistence.csproj", "{A0FA1396-67AC-4CF9-A679-462A492B5CBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.Cached", "BookApp.Books.ServiceLayer.Cached\BookApp.Books.ServiceLayer.Cached.csproj", "{77EA8714-999F-4361-9A9E-4CD057864565}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.Cached", "BookApp.Books.ServiceLayer.Cached\BookApp.Books.ServiceLayer.Cached.csproj", "{77EA8714-999F-4361-9A9E-4CD057864565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.Common", "BookApp.Books.ServiceLayer.Common\BookApp.Books.ServiceLayer.Common.csproj", "{366D0491-9850-436C-8961-2225452B23E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.Common", "BookApp.Books.ServiceLayer.Common\BookApp.Books.ServiceLayer.Common.csproj", "{366D0491-9850-436C-8961-2225452B23E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.Dapper", "BookApp.Books.ServiceLayer.Dapper\BookApp.Books.ServiceLayer.Dapper.csproj", "{2918AE5B-B9A6-4892-A7B4-C389D59F5223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.Dapper", "BookApp.Books.ServiceLayer.Dapper\BookApp.Books.ServiceLayer.Dapper.csproj", "{2918AE5B-B9A6-4892-A7B4-C389D59F5223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.GoodLinq", "BookApp.Books.ServiceLayer.GoodLinq\BookApp.Books.ServiceLayer.GoodLinq.csproj", "{5A069827-91D7-4246-B8B3-15DAF0AF7759}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.GoodLinq", "BookApp.Books.ServiceLayer.GoodLinq\BookApp.Books.ServiceLayer.GoodLinq.csproj", "{5A069827-91D7-4246-B8B3-15DAF0AF7759}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.ServiceLayer.Udfs", "BookApp.Books.ServiceLayer.Udfs\BookApp.Books.ServiceLayer.Udfs.csproj", "{92478ACA-DEF3-4B3E-8EE6-8E1E8BB17A76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.ServiceLayer.Udfs", "BookApp.Books.ServiceLayer.Udfs\BookApp.Books.ServiceLayer.Udfs.csproj", "{92478ACA-DEF3-4B3E-8EE6-8E1E8BB17A76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Books.Test", "BookApp.Books.Test\BookApp.Books.Test.csproj", "{9C2B5DE0-671E-481E-80D1-E46A44D35A96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Books.Test", "BookApp.Books.Test\BookApp.Books.Test.csproj", "{9C2B5DE0-671E-481E-80D1-E46A44D35A96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27DD75D1-AA14-49CC-891A-1FBEE40A37B7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6784CC0C-D9F0-4924-8ECB-3CB7B5767BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6784CC0C-D9F0-4924-8ECB-3CB7B5767BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6784CC0C-D9F0-4924-8ECB-3CB7B5767BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
