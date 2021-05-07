@@ -4,7 +4,7 @@
 <!-- See documentation for all the possible values -->
   <metadata>
     <id>BookApp.Books</id>
-    <version>1.1.0-preview001</version>
+    <version>1.1.0-preview003</version>
     <authors>Jon P Smith</authors>
     <description>The bounded context handling Books turned into a NuGet package</description>
     <releaseNotes>First version using new MultiProjPack tool</releaseNotes>

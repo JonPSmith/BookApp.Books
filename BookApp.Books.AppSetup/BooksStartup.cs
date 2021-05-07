@@ -30,7 +30,7 @@ namespace BookApp.Books.AppSetup
             //put any non-standard DI registration, e.g. generic types, here
 
             //FOR TEST OF UPDATED EXISTING NuGet
-            return "second string";
+            return "third string";
         }
     }
 }
