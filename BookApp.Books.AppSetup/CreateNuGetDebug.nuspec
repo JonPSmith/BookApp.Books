@@ -2,10 +2,10 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>BookApp.Books</id>
-    <version>1.1.0-preview003</version>
+    <version>1.1.0-preview005</version>
     <authors>Jon P Smith</authors>
     <description>The bounded context handling Books turned into a NuGet package</description>
-    <releaseNotes>First version using new MultiProjPack tool</releaseNotes>
+    <releaseNotes>Back to normal symbol files in every project</releaseNotes>
     <dependencies>
       <group targetFramework="netstandard2.1">
         <dependency id="Microsoft.Extensions.Configuration" version="5.0.0" />
